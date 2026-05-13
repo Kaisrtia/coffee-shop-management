@@ -1,2 +1,8 @@
 /Sourcecode/Project2/dist/
+/Sourcecode/Project2/build/
+/Sourcecode/Project2/out/
+/Sourcecode/Project2/.idea/
+/Sourcecode/Project2/nbproject/private/
+/Sourcecode/Project2/remember.dat
+*.class
 .class
