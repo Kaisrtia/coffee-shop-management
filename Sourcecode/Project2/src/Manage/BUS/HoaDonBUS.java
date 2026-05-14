@@ -52,7 +52,7 @@ public class HoaDonBUS {
             }
             return dshd;
         } catch (Exception e) {
-            new MyDialog("Hãy nhập khoảng giá hợp lệ", MyDialog.ERROR_DIALOG);
+            new MyDialog("Hay nhap khoang gia hop le", MyDialog.ERROR_DIALOG);
         }
         return null;
     }
@@ -69,7 +69,7 @@ public class HoaDonBUS {
             ArrayList<HoaDon> dshd = hoaDonDAO.getListHoaDon(dateMin, dateMax);
             return dshd;
         } catch (Exception e) {
-            new MyDialog("Hãy nhập khoảng ngày hợp lệ!", MyDialog.ERROR_DIALOG);
+            new MyDialog("Hay nhap khoang ngay hop le!", MyDialog.ERROR_DIALOG);
         }
         return null;
     }

@@ -53,7 +53,7 @@ public class PnQuanLyKhuyenMaiGUI extends JPanel {
         pnMain.setLayout(new BoxLayout(pnMain, BoxLayout.Y_AXIS));
 
         JPanel pnTitle = new TransparentPanel();
-        JLabel lblTitle = new JLabel("<html><h1>QUẢN LÝ MÃ KHUYẾN MÃI</h1></html>");
+        JLabel lblTitle = new JLabel("<html><h1>QUAN LY MA KHUYEN MAI</h1></html>");
         btnReset = new JButton(new ImageIcon("image/Refresh-icon.png"));
         btnReset.setFocusPainted(false);
         btnReset.setPreferredSize(new Dimension(40, 40));
@@ -66,12 +66,12 @@ public class PnQuanLyKhuyenMaiGUI extends JPanel {
         pnTextField.setLayout(new BoxLayout(pnTextField, BoxLayout.Y_AXIS));
 
         JLabel lblMa, lblTen, lblPhanTram, lblDieuKien, lblNgayBD, lblNgayKT;
-        lblMa = new JLabel("Mã Khuyến mãi");
-        lblTen = new JLabel("Tên chương trình");
-        lblPhanTram = new JLabel("Phần trăm giảm");
-        lblDieuKien = new JLabel("Điều kiện (>x)");
-        lblNgayBD = new JLabel("Ngày bắt đầu");
-        lblNgayKT = new JLabel("Ngày kết thúc");
+        lblMa = new JLabel("Ma Khuyen mai");
+        lblTen = new JLabel("Ten chuong trinh");
+        lblPhanTram = new JLabel("Phan tram giam");
+        lblDieuKien = new JLabel("Dieu kien (>x)");
+        lblNgayBD = new JLabel("Ngay bat dau");
+        lblNgayKT = new JLabel("Ngay ket thuc");
 
         lblMa.setFont(font);
         lblTen.setFont(font);
@@ -146,8 +146,8 @@ public class PnQuanLyKhuyenMaiGUI extends JPanel {
 
         //==========BUTTON PANEL===============
         JPanel pnButton = new TransparentPanel();
-        btnThem = new JButton("Thêm");
-        btnSua = new JButton("Sửa");
+        btnThem = new JButton("Them");
+        btnSua = new JButton("Sua");
         btnThem.setFont(font);
         btnSua.setFont(font);
         pnButton.add(btnThem);
@@ -158,13 +158,13 @@ public class PnQuanLyKhuyenMaiGUI extends JPanel {
         //======================TABLE======================
         JPanel pnTable = new TransparentPanel(new BorderLayout());
         dtmKhuyenMai = new DefaultTableModel();
-        dtmKhuyenMai.addColumn("Mã KM");
-        dtmKhuyenMai.addColumn("Chương trình");
-        dtmKhuyenMai.addColumn("Phần trăm KM");
-        dtmKhuyenMai.addColumn("Điều kiện");
-        dtmKhuyenMai.addColumn("Ngày bắt đầu");
-        dtmKhuyenMai.addColumn("Ngày kết thúc");
-        dtmKhuyenMai.addColumn("Tình trạng");
+        dtmKhuyenMai.addColumn("Ma KM");
+        dtmKhuyenMai.addColumn("Chuong trinh");
+        dtmKhuyenMai.addColumn("Phan tram KM");
+        dtmKhuyenMai.addColumn("Dieu kien");
+        dtmKhuyenMai.addColumn("Ngay bat dau");
+        dtmKhuyenMai.addColumn("Ngay ket thuc");
+        dtmKhuyenMai.addColumn("Tinh trang");
 
         tblKhuyenMai = new MyTable(dtmKhuyenMai);
         JScrollPane scrTblKhuyenMai = new JScrollPane(tblKhuyenMai);
@@ -252,9 +252,9 @@ public class PnQuanLyKhuyenMaiGUI extends JPanel {
 
             Date now = new Date();
             if (gg.getNgayBD().before(now) && gg.getNgayKT().after(now)) {
-                vec.add("Có hiệu lực");
+                vec.add("Co hieu luc");
             } else {
-                vec.add("Không hiệu lực");
+                vec.add("Khong hieu luc");
             }
 
             dtmKhuyenMai.addRow(vec);

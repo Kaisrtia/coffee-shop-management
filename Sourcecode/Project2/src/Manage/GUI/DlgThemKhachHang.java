@@ -5,12 +5,12 @@ import Manage.BUS.KhachHangBUS;
 public class DlgThemKhachHang extends javax.swing.JDialog {
 
     public DlgThemKhachHang() {
-        this.setTitle("Thêm khách hàng");
+        this.setTitle("Them khach hang");
         initComponents();
         cmbGioiTinh.removeAllItems();
-        cmbGioiTinh.addItem("Chọn giới tính");
+        cmbGioiTinh.addItem("Chon gioi tinh");
         cmbGioiTinh.addItem("Nam");
-        cmbGioiTinh.addItem("Nữ");
+        cmbGioiTinh.addItem("Nu");
         this.setModal(true);
         this.setLocationRelativeTo(null);
         this.setResizable(false);
@@ -33,23 +33,23 @@ public class DlgThemKhachHang extends javax.swing.JDialog {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        jLabel1.setText("Họ ");
+        jLabel1.setText("Ho ");
 
         txtHo.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
 
         txtTen.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
 
         jLabel2.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        jLabel2.setText("Tên");
+        jLabel2.setText("Ten");
 
         jLabel3.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        jLabel3.setText("Giới tính");
+        jLabel3.setText("Gioi tinh");
 
         cmbGioiTinh.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         cmbGioiTinh.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jButton1.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
-        jButton1.setText("Thêm");
+        jButton1.setText("Them");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -58,7 +58,7 @@ public class DlgThemKhachHang extends javax.swing.JDialog {
         jPanel1.add(jButton1);
 
         jButton2.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
-        jButton2.setText("Thoát");
+        jButton2.setText("Thoat");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);

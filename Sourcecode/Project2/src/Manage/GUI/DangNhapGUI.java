@@ -13,7 +13,7 @@ import java.awt.event.*;
 public class DangNhapGUI extends JFrame {
 
     public DangNhapGUI() {
-        this.setTitle("Đăng nhập");
+        this.setTitle("Dang nhap");
         this.setSize(440, 624);
         this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         this.setLocationRelativeTo(null);
@@ -39,32 +39,41 @@ public class DangNhapGUI extends JFrame {
 
         btnExit = new JLabel(new ImageIcon("image/LoginUI/btn-close.png"));
         btnExit.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        btnExit.setToolTipText("Thoat");
         btnExit.setBounds(380, 10, 40, 40);
 
         btnLogin = new JLabel(new ImageIcon("image/LoginUI/btn-login.png"));
         btnLogin.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        btnLogin.setToolTipText("Dang nhap");
         btnLogin.setBounds(35, 520, 370, 50);
 
         btnForgot = new JLabel(new ImageIcon("image/LoginUI/btn-forgot.png"));
         btnForgot.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        btnForgot.setToolTipText("Lien he quan tri vien de lay lai mat khau");
         btnForgot.setBounds(138, 575, 164, 30);
 
         Font fontTXT = new Font("Times New Roman", Font.BOLD, 18);
         txtUser = new JTextField();
         txtUser.setBackground(Color.WHITE);
-        txtUser.setBorder(BorderFactory.createEmptyBorder());
+        txtUser.setBorder(BorderFactory.createCompoundBorder(
+                BorderFactory.createLineBorder(new Color(0xD6DEE6)),
+                BorderFactory.createEmptyBorder(0, 14, 0, 14)));
         txtUser.setForeground(Color.BLACK);
         txtUser.setFont(fontTXT);
         txtUser.setHorizontalAlignment(JTextField.LEFT);
+        txtUser.setToolTipText("Nhap ten dang nhap");
         txtUser.setBounds(36, 302, 370, 50);
 
         txtPassword = new JPasswordField();
-        txtPassword.setEchoChar('•');
-        txtPassword.setBackground(Color.WHITE);;
-        txtPassword.setBorder(BorderFactory.createEmptyBorder());
+        txtPassword.setEchoChar('\u2022');
+        txtPassword.setBackground(Color.WHITE);
+        txtPassword.setBorder(BorderFactory.createCompoundBorder(
+                BorderFactory.createLineBorder(new Color(0xD6DEE6)),
+                BorderFactory.createEmptyBorder(0, 14, 0, 14)));
         txtPassword.setForeground(Color.BLACK);
         txtPassword.setFont(fontTXT);
         txtPassword.setHorizontalAlignment(JTextField.LEFT);
+        txtPassword.setToolTipText("Nhap mat khau");
         txtPassword.setBounds(36, 401, 370, 50);
         Main.changLNF("Nimbus");
 
@@ -193,21 +202,21 @@ public class DangNhapGUI extends JFrame {
     }
 
     private void xuLyQuenMatKhau() {
-        new MyDialog("liên hệ Admin!", MyDialog.INFO_DIALOG);
+        new MyDialog("Lien he Admin!", MyDialog.INFO_DIALOG);
     }
 
-   private void xuLyDangNhap() {
-    DangNhapBUS dangNhapBUS = new DangNhapBUS();
-    TaiKhoan tk = dangNhapBUS.getTaiKhoanDangNhap(
-        txtUser.getText(),
-        txtPassword.getText()
-    );
-    if (tk != null) {
-        this.dispose();
-        MainQuanLyGUI gui = new MainQuanLyGUI();
-        gui.showWindow();
+    private void xuLyDangNhap() {
+        DangNhapBUS dangNhapBUS = new DangNhapBUS();
+        TaiKhoan tk = dangNhapBUS.getTaiKhoanDangNhap(
+                txtUser.getText(),
+                txtPassword.getText()
+        );
+        if (tk != null) {
+            this.dispose();
+            MainQuanLyGUI gui = new MainQuanLyGUI();
+            gui.showWindow();
+        }
     }
-}
 
     public void showWindow() {
         Image icon = Toolkit.getDefaultToolkit().getImage("image/ManagerUI/icon-app.png");

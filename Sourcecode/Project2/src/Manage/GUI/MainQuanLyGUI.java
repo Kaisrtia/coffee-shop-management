@@ -10,15 +10,17 @@ import java.util.ArrayList;
 import javax.swing.*;
 
 public class MainQuanLyGUI extends JFrame {
- 
-private final Color DARK_BLUE = new Color(0x2C3E50);      
-private final Color MEDIUM_BLUE = new Color(0x2980B9);     
 
-private final Color GRAY = new Color(0xBDC3C7);          
-
+    private final Color DARK_BLUE = new Color(0x2C3E50);
+    private final Color MEDIUM_BLUE = new Color(0x2F80B7);
+    private final Color GRAY = new Color(0xBDC3C7);
+    private final Color SIDEBAR_TEXT = Color.WHITE;
+    private final Color SIDEBAR_TEXT_HOVER = new Color(0x1F2D3A);
+    private final Color HEADER_BUTTON_HOVER = new Color(0x6CAED6);
+    private final Color CLOSE_BUTTON_HOVER = new Color(0xD75A4A);
 
     public MainQuanLyGUI() {
-        this.setTitle("Phần mềm quản lý bán hàng");
+        this.setTitle("Phan mem quan ly ban hang");
         this.setSize(1280, 900);
         Image icon = Toolkit.getDefaultToolkit().getImage("image/ManagerUI/icon-app.png");
         this.setIconImage(icon);
@@ -48,6 +50,7 @@ private final Color GRAY = new Color(0xBDC3C7);
     final Color clLeftItemSelected = MEDIUM_BLUE;
     ArrayList<JLabel> listMenuLeft;
     CardLayout cardMenuLeftGroup = new CardLayout();
+    int xMouse, yMouse;
 
     private void addControls() {
         int width = this.getWidth();
@@ -62,9 +65,9 @@ private final Color GRAY = new Color(0xBDC3C7);
         pnTitle.setPreferredSize(new Dimension(width, 46));
         pnTitle.setBackground(MEDIUM_BLUE);
 
-        btnDoiMatKhau = new JLabel(new ImageIcon("image/ManagerUI/icons8_gear_46px.png"));
-        btnDoiMatKhau.setToolTipText("Đổi mật khẩu");
-        btnDoiMatKhau.setBounds(0, 0, 46, 46);
+        btnDoiMatKhau = createHeaderButton("Doi mat khau");
+        btnDoiMatKhau.setToolTipText("Doi mat khau");
+        btnDoiMatKhau.setBounds(10, 5, 115, 36);
         btnDoiMatKhau.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         pnTitle.add(btnDoiMatKhau);
 
@@ -72,13 +75,13 @@ private final Color GRAY = new Color(0xBDC3C7);
         lblTitleText.setBounds(width / 2 - 428 / 2, 3, 428, 38);
         pnTitle.add(lblTitleText);
 
-        btnMinimize = new JLabel(new ImageIcon("image/ManagerUI/btn-minimize.png"));
-        btnMinimize.setBounds(width - 85, 5, 38, 35);
+        btnMinimize = createHeaderButton("-");
+        btnMinimize.setBounds(width - 86, 5, 36, 36);
         btnMinimize.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         pnTitle.add(btnMinimize);
 
-        btnClose = new JLabel(new ImageIcon("image/ManagerUI/btn-close.png"));
-        btnClose.setBounds(width - 40, 5, 35, 35);
+        btnClose = createHeaderButton("X");
+        btnClose.setBounds(width - 44, 5, 36, 36);
         btnClose.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         pnTitle.add(btnClose);
 
@@ -90,15 +93,17 @@ private final Color GRAY = new Color(0xBDC3C7);
         pnMenuLeft.setLayout(new BoxLayout(pnMenuLeft, BoxLayout.Y_AXIS));
 
         JLabel lblAvatar = new JLabel(new ImageIcon("image/ManagerUI/avatar.png"), JLabel.CENTER);
-        lblAvatar.setPreferredSize(new Dimension(250, 210));
+        lblAvatar.setPreferredSize(new Dimension(250, 190));
+        lblAvatar.setMaximumSize(new Dimension(250, 190));
+        lblAvatar.setAlignmentX(Component.LEFT_ALIGNMENT);
         pnMenuLeft.add(lblAvatar);
 
-        lblBanHang = new JLabel(new ImageIcon("image/ManagerUI/lblBanHang.png"));
-        lblKhuyenMai = new JLabel(new ImageIcon("image/ManagerUI/lblKhuyenMai.png"));
-        lblSanPham = new JLabel(new ImageIcon("image/ManagerUI/lblSanPham.png"));
-        lblNhanVien = new JLabel(new ImageIcon("image/ManagerUI/lblNhanVien.png"));
-        lblKhachHang = new JLabel(new ImageIcon("image/ManagerUI/lblKhachHang.png"));
-        lblThongKe = new JLabel(new ImageIcon("image/ManagerUI/lblThongKe.png"));
+        lblBanHang = createMenuLabel("Ban hang");
+        lblKhuyenMai = createMenuLabel("Khuyen mai");
+        lblSanPham = createMenuLabel("San pham");
+        lblNhanVien = createMenuLabel("Nhan vien");
+        lblKhachHang = createMenuLabel("Khach hang");
+        lblThongKe = createMenuLabel("Thong ke");
 
         listMenuLeft = new ArrayList<>();
         listMenuLeft.add(lblBanHang);
@@ -108,11 +113,21 @@ private final Color GRAY = new Color(0xBDC3C7);
         listMenuLeft.add(lblKhachHang);
         listMenuLeft.add(lblThongKe);
 
+        lblBanHang.setToolTipText("Ban hang");
+        lblKhuyenMai.setToolTipText("Quan ly khuyen mai");
+        lblSanPham.setToolTipText("Quan ly san pham");
+        lblNhanVien.setToolTipText("Quan ly nhan vien");
+        lblKhachHang.setToolTipText("Quan ly khach hang");
+        lblThongKe.setToolTipText("Thong ke");
+
         for (JLabel lbl : listMenuLeft) {
             lbl.setVisible(false);
-            lbl.setPreferredSize(new Dimension(250, 65));
+            lbl.setPreferredSize(new Dimension(250, 62));
+            lbl.setMaximumSize(new Dimension(250, 62));
+            lbl.setMinimumSize(new Dimension(250, 62));
             lbl.setOpaque(true);
             lbl.setBackground(clLeftItem);
+            lbl.setForeground(SIDEBAR_TEXT);
             lbl.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
             pnMenuLeft.add(lbl);
         }
@@ -140,7 +155,6 @@ private final Color GRAY = new Color(0xBDC3C7);
         pnBanHang.setLayout(new BorderLayout());
         pnBanHang.add(banHangPanel, BorderLayout.CENTER);
 
-
         PhanQuyenBUS phanQuyenBUS = new PhanQuyenBUS();
         PhanQuyen quyen = phanQuyenBUS.getPhanQuyen(DangNhapBUS.quyenTK);
 
@@ -149,7 +163,7 @@ private final Color GRAY = new Color(0xBDC3C7);
             pnSanPham.setLayout(new BorderLayout());
             pnSanPham.add(sanPhamPanel, BorderLayout.CENTER);
             lblSanPham.setVisible(true);
-            
+
             khuyenMaiPanel = new PnQuanLyKhuyenMaiGUI();
             pnKhuyenMai.setLayout(new BorderLayout());
             pnKhuyenMai.add(khuyenMaiPanel, BorderLayout.CENTER);
@@ -176,11 +190,30 @@ private final Color GRAY = new Color(0xBDC3C7);
             pnThongKe.add(thongKePanel, BorderLayout.CENTER);
             lblThongKe.setVisible(true);
         }
+
         pnMain.add(pnCard);
         con.add(pnMain);
     }
 
-    int xMouse, yMouse;
+    private JLabel createMenuLabel(String text) {
+        JLabel label = new JLabel(text);
+        label.setFont(new Font("Times New Roman", Font.BOLD, 20));
+        label.setHorizontalAlignment(SwingConstants.LEFT);
+        label.setVerticalAlignment(SwingConstants.CENTER);
+        label.setBorder(BorderFactory.createEmptyBorder(0, 32, 0, 12));
+        label.setAlignmentX(Component.LEFT_ALIGNMENT);
+        return label;
+    }
+
+    private JLabel createHeaderButton(String text) {
+        JLabel label = new JLabel(text, SwingConstants.CENTER);
+        label.setOpaque(true);
+        label.setBackground(MEDIUM_BLUE);
+        label.setForeground(Color.WHITE);
+        label.setFont(new Font("Times New Roman", Font.BOLD, 15));
+        label.setBorder(BorderFactory.createEmptyBorder(0, 8, 0, 8));
+        return label;
+    }
 
     private void addEvents() {
         this.addMouseMotionListener(new MouseMotionListener() {
@@ -213,13 +246,12 @@ private final Color GRAY = new Color(0xBDC3C7);
             @Override
             public void mouseEntered(MouseEvent e) {
                 btnDoiMatKhau.setOpaque(true);
-                btnDoiMatKhau.setBackground(clLeftItemHover);
+                btnDoiMatKhau.setBackground(HEADER_BUTTON_HOVER);
             }
 
             @Override
             public void mouseExited(MouseEvent e) {
-                btnDoiMatKhau.setOpaque(false);
-                btnDoiMatKhau.setBackground(new Color(0, 0, 0, 0));
+                btnDoiMatKhau.setBackground(MEDIUM_BLUE);
             }
         });
 
@@ -240,13 +272,12 @@ private final Color GRAY = new Color(0xBDC3C7);
             @Override
             public void mouseEntered(MouseEvent e) {
                 btnMinimize.setOpaque(true);
-                btnMinimize.setBackground(clLeftItemHover);
+                btnMinimize.setBackground(HEADER_BUTTON_HOVER);
             }
 
             @Override
             public void mouseExited(MouseEvent e) {
-                btnMinimize.setOpaque(false);
-                btnMinimize.setBackground(new Color(0, 0, 0, 0));
+                btnMinimize.setBackground(MEDIUM_BLUE);
             }
         });
 
@@ -267,13 +298,12 @@ private final Color GRAY = new Color(0xBDC3C7);
             @Override
             public void mouseEntered(MouseEvent e) {
                 btnClose.setOpaque(true);
-                btnClose.setBackground(clLeftItemHover);
+                btnClose.setBackground(CLOSE_BUTTON_HOVER);
             }
 
             @Override
             public void mouseExited(MouseEvent e) {
-                btnClose.setOpaque(false);
-                btnClose.setBackground(new Color(0, 0, 0, 0));
+                btnClose.setBackground(MEDIUM_BLUE);
             }
         });
 
@@ -284,8 +314,10 @@ private final Color GRAY = new Color(0xBDC3C7);
                 public void mouseClicked(MouseEvent e) {
                     for (JLabel lbl : listMenuLeft) {
                         lbl.setBackground(clLeftItem);
+                        lbl.setForeground(SIDEBAR_TEXT);
                     }
                     listMenuLeft.get(index).setBackground(clLeftItemSelected);
+                    listMenuLeft.get(index).setForeground(SIDEBAR_TEXT);
                     cardMenuLeftGroup.show(pnCard, String.valueOf(index + 1));
                 }
 
@@ -301,6 +333,7 @@ private final Color GRAY = new Color(0xBDC3C7);
                 public void mouseEntered(MouseEvent e) {
                     if (listMenuLeft.get(index).getBackground() != clLeftItemSelected) {
                         listMenuLeft.get(index).setBackground(clLeftItemHover);
+                        listMenuLeft.get(index).setForeground(SIDEBAR_TEXT_HOVER);
                     }
                 }
 
@@ -308,6 +341,7 @@ private final Color GRAY = new Color(0xBDC3C7);
                 public void mouseExited(MouseEvent e) {
                     if (listMenuLeft.get(index).getBackground() != clLeftItemSelected) {
                         listMenuLeft.get(index).setBackground(clLeftItem);
+                        listMenuLeft.get(index).setForeground(SIDEBAR_TEXT);
                     }
                 }
             });

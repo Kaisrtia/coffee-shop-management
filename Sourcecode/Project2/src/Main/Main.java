@@ -7,14 +7,14 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- * Class chính của ứng dụng
+ * Class chinh cua ung dung
  */
 public class Main {
     private static final Logger LOGGER = Logger.getLogger(Main.class.getName());
 
     /**
-     * Phương thức main của ứng dụng
-     * @param args Tham số dòng lệnh
+     * Phuong thuc main cua ung dung
+     * @param args Tham so dong lenh
      */
     public static void main(String[] args) {
         try {
@@ -23,17 +23,17 @@ public class Main {
             DangNhapGUI login = new DangNhapGUI();
             login.showWindow();
         } catch (Exception e) {
-            LOGGER.log(Level.SEVERE, "Lỗi khởi động ứng dụng", e);
+            LOGGER.log(Level.SEVERE, "Loi khoi dong ung dung", e);
             JOptionPane.showMessageDialog(null, 
-                "Không thể khởi động ứng dụng. Vui lòng kiểm tra lại kết nối database.",
-                "Lỗi",
+                "Khong the khoi dong ung dung. Vui long kiem tra lai ket noi database.",
+                "Loi",
                 JOptionPane.ERROR_MESSAGE);
         }
     }
 
     /**
-     * Thay đổi giao diện của ứng dụng
-     * @param nameLNF Tên giao diện cần thay đổi
+     * Thay doi giao dien cua ung dung
+     * @param nameLNF Ten giao dien can thay doi
      */
     public static void changLNF(String nameLNF) {
         try {
@@ -45,7 +45,7 @@ public class Main {
             }
         } catch (ClassNotFoundException | InstantiationException | 
                 IllegalAccessException | UnsupportedLookAndFeelException ex) {
-            LOGGER.log(Level.WARNING, "Không thể thay đổi giao diện", ex);
+            LOGGER.log(Level.WARNING, "Khong the thay doi giao dien", ex);
         }
     }
 }

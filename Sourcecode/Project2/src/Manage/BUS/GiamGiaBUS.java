@@ -30,11 +30,11 @@ public class GiamGiaBUS {
         phanTram = phanTram.replace("%", "");
         dieuKien = dieuKien.replace(",", "");
         if (ten.equals("")) {
-            new MyDialog("Hãy nhập tên chương trình khuyến mãi!", MyDialog.ERROR_DIALOG);
+            new MyDialog("Hay nhap ten chuong trinh khuyen mai!", MyDialog.ERROR_DIALOG);
             return false;
         }
         if (ngayBD.compareTo(ngayKT) > 0 || ngayBD.compareTo(ngayKT) == 0) {
-            new MyDialog("Ngày kết thúc không hợp lệ!", MyDialog.ERROR_DIALOG);
+            new MyDialog("Ngay ket thuc khong hop le!", MyDialog.ERROR_DIALOG);
             return false;
         }
         boolean flag = false;
@@ -51,13 +51,13 @@ public class GiamGiaBUS {
 
             flag = giamGiaDAO.themMaGiam(gg);
         } catch (Exception e) {
-            new MyDialog("Hãy nhập số hợp lệ!", MyDialog.ERROR_DIALOG);
+            new MyDialog("Hay nhap so hop le!", MyDialog.ERROR_DIALOG);
             return false;
         }
         if (flag) {
-            new MyDialog("Thêm mới thành công!", MyDialog.SUCCESS_DIALOG);
+            new MyDialog("Them moi thanh cong!", MyDialog.SUCCESS_DIALOG);
         } else {
-            new MyDialog("Thêm mới thất bại!", MyDialog.ERROR_DIALOG);
+            new MyDialog("Them moi that bai!", MyDialog.ERROR_DIALOG);
         }
         return flag;
     }
@@ -67,15 +67,15 @@ public class GiamGiaBUS {
         phanTram = phanTram.replace("%", "");
         dieuKien = dieuKien.replace(",", "");
         if (ma.equals("")) {
-            new MyDialog("Chưa chọn mã để sửa!", MyDialog.ERROR_DIALOG);
+            new MyDialog("Chua chon ma de sua!", MyDialog.ERROR_DIALOG);
             return false;
         }
         if (ten.equals("")) {
-            new MyDialog("Hãy nhập tên chương trình khuyến mãi!", MyDialog.ERROR_DIALOG);
+            new MyDialog("Hay nhap ten chuong trinh khuyen mai!", MyDialog.ERROR_DIALOG);
             return false;
         }
         if (ngayBD.compareTo(ngayKT) > 0 || ngayBD.compareTo(ngayKT) == 0) {
-            new MyDialog("Ngày kết thúc không hợp lệ!", MyDialog.ERROR_DIALOG);
+            new MyDialog("Ngay ket thuc khong hop le!", MyDialog.ERROR_DIALOG);
             return false;
         }
         boolean flag = false;
@@ -94,13 +94,13 @@ public class GiamGiaBUS {
 
             flag = giamGiaDAO.suaMaGiam(gg);
         } catch (Exception e) {
-            new MyDialog("Hãy nhập số hợp lệ!", MyDialog.ERROR_DIALOG);
+            new MyDialog("Hay nhap so hop le!", MyDialog.ERROR_DIALOG);
             return false;
         }
         if (flag) {
-            new MyDialog("Sửa thành công!", MyDialog.SUCCESS_DIALOG);
+            new MyDialog("Sua thanh cong!", MyDialog.SUCCESS_DIALOG);
         } else {
-            new MyDialog("Sửa thất bại!", MyDialog.ERROR_DIALOG);
+            new MyDialog("Sua that bai!", MyDialog.ERROR_DIALOG);
         }
         return flag;
     }

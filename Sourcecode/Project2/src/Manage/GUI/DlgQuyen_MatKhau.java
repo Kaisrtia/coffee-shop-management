@@ -16,7 +16,7 @@ public class DlgQuyen_MatKhau extends javax.swing.JDialog {
     public DlgQuyen_MatKhau(String maNV) {
         this.maNV = maNV;
         initComponents();
-        this.setTitle("Chỉnh sửa tài khoản");
+        this.setTitle("Chinh sua tai khoan");
         this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         this.setLocationRelativeTo(null);
         this.setModal(true);
@@ -34,7 +34,7 @@ public class DlgQuyen_MatKhau extends javax.swing.JDialog {
 
         String tenDangNhap = taiKhoanBUS.getTenDangNhapTheoMa(maNV);
         if (tenDangNhap.equals("")) {
-            new MyDialog("Nhân viên này chưa có tài khoản!", MyDialog.ERROR_DIALOG);
+            new MyDialog("Nhan vien nay chua co tai khoan!", MyDialog.ERROR_DIALOG);
             btnCapMatKhau.setEnabled(false);
             btnLuuQuyen.setEnabled(false);
         }
@@ -89,25 +89,25 @@ public class DlgQuyen_MatKhau extends javax.swing.JDialog {
         pnCapMatKhau.setLayout(new javax.swing.BoxLayout(pnCapMatKhau, javax.swing.BoxLayout.Y_AXIS));
 
         lblTitleMatKhau.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        lblTitleMatKhau.setText("Cấp lại mật khẩu");
+        lblTitleMatKhau.setText("Cap lai mat khau");
         pnTitleMatKhau.add(lblTitleMatKhau);
 
         pnCapMatKhau.add(pnTitleMatKhau);
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        jLabel1.setText("Mã Nhân viên");
+        jLabel1.setText("Ma Nhan vien");
 
         txtMatKhau_MaNV.setEditable(false);
         txtMatKhau_MaNV.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
 
         jLabel2.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        jLabel2.setText("Tên đăng nhập");
+        jLabel2.setText("Ten dang nhap");
 
         txtMatKhau_TenDangNhap.setEditable(false);
         txtMatKhau_TenDangNhap.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
 
         btnCapMatKhau.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        btnCapMatKhau.setText("Đặt lại mật khẩu");
+        btnCapMatKhau.setText("Dat lai mat khau");
         btnCapMatKhau.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCapMatKhauActionPerformed(evt);
@@ -151,27 +151,27 @@ public class DlgQuyen_MatKhau extends javax.swing.JDialog {
 
         pnCapMatKhau.add(pnMatKhauInfo);
 
-        pnTab.addTab("Cấp lại mật khẩu", pnCapMatKhau);
+        pnTab.addTab("Cap lai mat khau", pnCapMatKhau);
 
         pnCapMatKhau2.setLayout(new javax.swing.BoxLayout(pnCapMatKhau2, javax.swing.BoxLayout.Y_AXIS));
 
         lblTitleMatKhau2.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        lblTitleMatKhau2.setText("Chỉnh sửa quyền");
+        lblTitleMatKhau2.setText("Chinh sua quyen");
         pnTitleMatKhau2.add(lblTitleMatKhau2);
 
         pnCapMatKhau2.add(pnTitleMatKhau2);
 
         jLabel5.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        jLabel5.setText("Mã Nhân viên");
+        jLabel5.setText("Ma Nhan vien");
 
         txtQuyen_MaNV.setEditable(false);
         txtQuyen_MaNV.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
 
         jLabel6.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        jLabel6.setText("Quyền Tài Khoản");
+        jLabel6.setText("Quyen Tai Khoan");
 
         btnLuuQuyen.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        btnLuuQuyen.setText("Lưu thay đổi");
+        btnLuuQuyen.setText("Luu thay doi");
         btnLuuQuyen.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLuuQuyenActionPerformed(evt);
@@ -217,7 +217,7 @@ public class DlgQuyen_MatKhau extends javax.swing.JDialog {
 
         pnCapMatKhau2.add(pnMatKhauInfo2);
 
-        pnTab.addTab("Chỉnh sửa quyền", pnCapMatKhau2);
+        pnTab.addTab("Chinh sua quyen", pnCapMatKhau2);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

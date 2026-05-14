@@ -49,7 +49,7 @@ public class PnQuanLyNhanVienGUI extends JPanel {
         
         /*
         =========================================================================
-                                    PANEL NHÂN VIÊN
+                                    PANEL NHAN VIEN
         =========================================================================
          */
         JPanel pnNhanVien = new TransparentPanel();
@@ -59,7 +59,7 @@ public class PnQuanLyNhanVienGUI extends JPanel {
         pnTopNV.setLayout(new BoxLayout(pnTopNV, BoxLayout.Y_AXIS));
 
         JPanel pnTitle = new TransparentPanel();
-        JLabel lblTitle = new JLabel("<html><h1>QUẢN LÝ NHÂN VIÊN</h1></html>");
+        JLabel lblTitle = new JLabel("<html><h1>QUAN LY NHAN VIEN</h1></html>");
         btnReset = new JButton(new ImageIcon("image/Refresh-icon.png"));
         btnReset.setPreferredSize(new Dimension(40, 40));
         pnTitle.add(lblTitle);
@@ -84,17 +84,17 @@ public class PnQuanLyNhanVienGUI extends JPanel {
         cmbGioiTinh.setFont(font);
         txtChucVu.setFont(font);
 
-        cmbGioiTinh.addItem("Chọn giới tính");
+        cmbGioiTinh.addItem("Chon gioi tinh");
         cmbGioiTinh.addItem("Nam");
-        cmbGioiTinh.addItem("Nữ");
+        cmbGioiTinh.addItem("Nu");
 
         JLabel lblMa, lblHo, lblTen, lblGioiTinh, lblChucVu;
 
-        lblMa = new JLabel("Mã Nhân viên");
-        lblHo = new JLabel("Họ đệm");
-        lblTen = new JLabel("Tên");
-        lblGioiTinh = new JLabel("Giới tính");
-        lblChucVu = new JLabel("Chức vụ");
+        lblMa = new JLabel("Ma NV");
+        lblHo = new JLabel("Ho dem");
+        lblTen = new JLabel("Ten");
+        lblGioiTinh = new JLabel("Gioi tinh");
+        lblChucVu = new JLabel("Chuc vu");
 
         lblMa.setFont(font);
         lblHo.setFont(font);
@@ -139,7 +139,7 @@ public class PnQuanLyNhanVienGUI extends JPanel {
 
         //==========
         JPanel pnTimNV = new TransparentPanel();
-        JLabel lblTim = new JLabel("Từ khoá tìm");
+        JLabel lblTim = new JLabel("Tu khoa tim");
         lblTim.setFont(font);
         txtTimNV = new JTextField(25);
         txtTimNV.setFont(font);
@@ -150,10 +150,10 @@ public class PnQuanLyNhanVienGUI extends JPanel {
         //==========
         JPanel pnButton = new TransparentPanel();
 
-        btnThemNV = new JButton("Thêm");
-        btnSuaNV = new JButton("Lưu");
-        btnXoaNV = new JButton("Xoá");
-        btnTimNV = new JButton("Tìm kiếm");
+        btnThemNV = new JButton("Them");
+        btnSuaNV = new JButton("Luu");
+        btnXoaNV = new JButton("Xoa");
+        btnTimNV = new JButton("Tim kiem");
 
         Font fontButton = new Font("Times New Roman", Font.PLAIN, 16);
         btnThemNV.setFont(fontButton);
@@ -173,9 +173,9 @@ public class PnQuanLyNhanVienGUI extends JPanel {
         btnTimNV.setPreferredSize(btnSize);
 
         JPanel pnButton2 = new TransparentPanel();
-        btnCapTaiKhoan = new JButton("Cấp tài khoản");
-        btnResetMatKhau = new JButton("Mật khẩu");
-        btnXoaTaiKhoan = new JButton("Khoá tài khoản");
+        btnCapTaiKhoan = new JButton("Cap tai khoan");
+        btnResetMatKhau = new JButton("Mat khau");
+        btnXoaTaiKhoan = new JButton("Khoa tai khoan");
         btnCapTaiKhoan.setFont(fontButton);
         btnResetMatKhau.setFont(fontButton);
         btnXoaTaiKhoan.setFont(fontButton);
@@ -186,16 +186,16 @@ public class PnQuanLyNhanVienGUI extends JPanel {
         pnNhanVien.add(pnTopNV);
         pnNhanVien.add(pnButton);
         pnNhanVien.add(pnButton2);
-        //===================TABLE NHÂN VIÊN=====================
+        //===================TABLE NHAN VIEN=====================
         JPanel pnTableNhanVien = new TransparentPanel();
         pnTableNhanVien.setLayout(new BorderLayout());
         dtmNhanVien = new DefaultTableModel();
-        dtmNhanVien.addColumn("Mã NV");
-        dtmNhanVien.addColumn("Họ đệm");
-        dtmNhanVien.addColumn("Tên");
-        dtmNhanVien.addColumn("Giới tính");
-        dtmNhanVien.addColumn("Chức vụ");
-        dtmNhanVien.addColumn("Tài khoản");
+        dtmNhanVien.addColumn("Ma NV");
+        dtmNhanVien.addColumn("Ho dem");
+        dtmNhanVien.addColumn("Ten");
+        dtmNhanVien.addColumn("Gioi tinh");
+        dtmNhanVien.addColumn("Chuc vu");
+        dtmNhanVien.addColumn("Tai khoan");
         tblNhanVien = new MyTable(dtmNhanVien);
         JScrollPane scrTblNhanVien = new JScrollPane(tblNhanVien);
         pnTableNhanVien.add(scrTblNhanVien, BorderLayout.CENTER);
@@ -304,7 +304,7 @@ public class PnQuanLyNhanVienGUI extends JPanel {
     private void xuLyResetMatKhau() {
         String maNV = txtMaNV.getText();
         if (maNV.trim().equals("")) {
-            new MyDialog("Hãy chọn nhân viên!", MyDialog.ERROR_DIALOG);
+            new MyDialog("Hay chon nhan vien!", MyDialog.ERROR_DIALOG);
             return;
         }
         DlgQuyen_MatKhau dialog = new DlgQuyen_MatKhau(maNV);
@@ -313,7 +313,7 @@ public class PnQuanLyNhanVienGUI extends JPanel {
 
     private void xuLyCapTaiKhoan() {
         if (txtMaNV.getText().trim().equals("")) {
-            new MyDialog("Hãy chọn nhân viên!", MyDialog.ERROR_DIALOG);
+            new MyDialog("Hay chon nhan vien!", MyDialog.ERROR_DIALOG);
             return;
         }
         DlgCapTaiKhoan dialog = new DlgCapTaiKhoan(txtMaNV.getText());
@@ -338,7 +338,7 @@ public class PnQuanLyNhanVienGUI extends JPanel {
 
     private void xuLySuaNhanVien() {
         if (cmbGioiTinh.getSelectedIndex() == 0) {
-            new MyDialog("Hãy chọn giới tính!", MyDialog.ERROR_DIALOG);
+            new MyDialog("Hay chon gioi tinh!", MyDialog.ERROR_DIALOG);
             return;
         }
         String ma = txtMaNV.getText();
@@ -354,7 +354,7 @@ public class PnQuanLyNhanVienGUI extends JPanel {
 
     private void xuLyThemNhanVien() {
         if (cmbGioiTinh.getSelectedIndex() == 0) {
-            new MyDialog("Hãy chọn giới tính!", MyDialog.ERROR_DIALOG);
+            new MyDialog("Hay chon gioi tinh!", MyDialog.ERROR_DIALOG);
             return;
         }
         String ho = txtHo.getText();
@@ -411,13 +411,13 @@ public class PnQuanLyNhanVienGUI extends JPanel {
             vec.add(nv.getChucVu());
             int trangThai = taiKhoanBUS.getTrangThai(nv.getMaNV() + "");
             if (trangThai == 0) {
-                vec.add("Khoá");
+                vec.add("Khoa");
             }
             else if(trangThai == 1) {
-                vec.add("Hiệu lực");
+                vec.add("Hieu luc");
             }
             else {
-                vec.add("Chưa có");
+                vec.add("Chua co");
             }
             dtmNhanVien.addRow(vec);
         }

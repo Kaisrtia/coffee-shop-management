@@ -68,8 +68,8 @@ public class ThongKeDAO {
     private String[] getDateString(int nam, int quy) {
         int namBatDau = nam;
         int namKetThuc = nam;
-        String thangBatDau = "01"; //kiểu String do có số 0 ở phía trước
-        String thangKetThuc = "04"; //kiểu String do có số 0 ở phía trước
+        String thangBatDau = "01"; //kieu String do co so 0 o phia truoc
+        String thangKetThuc = "04"; //kieu String do co so 0 o phia truoc
         String[] kq = new String[2];
         switch (quy) {
             case 1:

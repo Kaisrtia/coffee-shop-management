@@ -6,13 +6,16 @@ import MyCustom.TransparentPanel;
 import javax.swing.*;
 import java.awt.*;
 import static Main.Main.changLNF;
-import java.awt.event.*;
 import java.text.DecimalFormat;
 import java.util.Calendar;
 
 public class PnQuanLyThongKeGUI extends JPanel {
     private ThongKeBUS thongKeBUS = new ThongKeBUS();
-    private final Color colorPanel = new Color(56, 56, 56);
+    private final Color colorPanel = new Color(0xF4F7FA);
+    private final Color cardColor = Color.WHITE;
+    private final Color primaryBlue = new Color(0x2F80B7);
+    private final Color titleColor = new Color(0x243B53);
+    private final Color softBorder = new Color(0xD9E2EC);
     private JLabel lblThongKeThucDon, lblThongKeKhachHang, lblThongKeNhanVien, lblThongKeDoanhThu;
     private JLabel lblDoanhThuQuy1, lblDoanhThuQuy2, lblDoanhThuQuy3, lblDoanhThuQuy4, lblTongDoanhThu;
     private JButton btnView, btnBack;
@@ -34,7 +37,6 @@ public class PnQuanLyThongKeGUI extends JPanel {
         this.setLayout(new BorderLayout());
         this.setBackground(colorPanel);
         int w = 1030;
-        int h = 844;
 
         pnMain = new TransparentPanel();
         pnMain.setFont(new Font("Times New Roman", Font.PLAIN, 18));
@@ -42,182 +44,197 @@ public class PnQuanLyThongKeGUI extends JPanel {
 
         JPanel pnThongKeTong = new JPanel(null);
         pnThongKeTong.setBackground(colorPanel);
-        JLabel lblTileThongKeTong, lblBackgroundThucDon, lblBackgroundKhachHang, lblBackgroundNhanVien, lblBackgroundDoanhThu;
 
-        lblTileThongKeTong = new JLabel("TỔNG QUAN THỐNG KÊ", JLabel.CENTER);
+        JLabel lblTileThongKeTong = new JLabel("TONG QUAN THONG KE", JLabel.CENTER);
         lblTileThongKeTong.setFont(new Font("Times New Roman", Font.BOLD, 28));
-        btnView = new JButton(new ImageIcon("image/icons8_view_40px.png"));
-        lblBackgroundThucDon = new JLabel(new ImageIcon("image/ManagerUI/thongKeMon.png"));
-        lblBackgroundKhachHang = new JLabel(new ImageIcon("image/ManagerUI/thongKeKhachHang.png"));
-        lblBackgroundNhanVien = new JLabel(new ImageIcon("image/ManagerUI/thongKeNhanVien.png"));
-        lblBackgroundDoanhThu = new JLabel(new ImageIcon("image/ManagerUI/thongKeDoanhThu.png"));
-
-        lblTileThongKeTong.setBounds(0, 15, w, 50);
-        btnView.setBounds(10, 10, 45, 45);
-        lblBackgroundThucDon.setBounds(98, 85, 369, 201);
-        lblBackgroundKhachHang.setBounds(563, 85, 369, 201);
-        lblBackgroundNhanVien.setBounds(98, 340, 369, 201);
-        lblBackgroundDoanhThu.setBounds(563, 340, 369, 201);
-
-        btnView.setToolTipText("Xem chi tiết");
-        btnView.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-
-        lblThongKeThucDon = new JLabel("55", JLabel.CENTER);
-        lblThongKeKhachHang = new JLabel("46", JLabel.CENTER);
-        lblThongKeNhanVien = new JLabel("23", JLabel.CENTER);
-        lblThongKeDoanhThu = new JLabel("1.286.379.000", JLabel.CENTER);
-
-        Font font = new Font("Times New Roman", Font.BOLD, 48);
-        lblThongKeThucDon.setFont(font);
-        lblThongKeKhachHang.setFont(font);
-        lblThongKeNhanVien.setFont(font);
-        lblThongKeDoanhThu.setFont(font);
-
-        lblTileThongKeTong.setForeground(Color.white);
-        lblThongKeThucDon.setForeground(Color.white);
-        lblThongKeKhachHang.setForeground(Color.white);
-        lblThongKeNhanVien.setForeground(Color.white);
-        lblThongKeDoanhThu.setForeground(Color.white);
-
-        lblThongKeThucDon.setBounds(98, 100, 232, 87);
-        lblThongKeKhachHang.setBounds(563, 100, 232, 87);
-        lblThongKeNhanVien.setBounds(98, 350, 232, 87);
-        lblThongKeDoanhThu.setBounds(563, 350, 369, 87);
-
+        lblTileThongKeTong.setForeground(titleColor);
+        lblTileThongKeTong.setBounds(0, 20, w, 45);
         pnThongKeTong.add(lblTileThongKeTong);
+
+        btnView = createActionButton("Chi tiet");
+        btnView.setForeground(Color.BLACK);
+        btnView.setToolTipText("Xem chi tiet");
+        btnView.setBounds(25, 22, 95, 34);
         pnThongKeTong.add(btnView);
-        pnThongKeTong.add(lblThongKeThucDon);
-        pnThongKeTong.add(lblThongKeKhachHang);
-        pnThongKeTong.add(lblThongKeNhanVien);
-        pnThongKeTong.add(lblThongKeDoanhThu);
-        pnThongKeTong.add(lblBackgroundThucDon);
-        pnThongKeTong.add(lblBackgroundKhachHang);
-        pnThongKeTong.add(lblBackgroundNhanVien);
-        pnThongKeTong.add(lblBackgroundDoanhThu);
 
-        lblDoanhThuQuy1 = new JLabel("2.000.000", JLabel.CENTER);
-        lblDoanhThuQuy2 = new JLabel("3.000.000", JLabel.CENTER);
-        lblDoanhThuQuy3 = new JLabel("9.000.000", JLabel.CENTER);
-        lblDoanhThuQuy4 = new JLabel("12.000.000", JLabel.CENTER);
-        lblTongDoanhThu = new JLabel("26.000.000", JLabel.CENTER);
+        lblThongKeThucDon = createNumberLabel();
+        lblThongKeKhachHang = createNumberLabel();
+        lblThongKeNhanVien = createNumberLabel();
+        lblThongKeDoanhThu = createNumberLabel();
 
-        Font font1 = new Font("Times New Roman", Font.BOLD, 22);
-        lblDoanhThuQuy1.setFont(font1);
-        lblDoanhThuQuy2.setFont(font1);
-        lblDoanhThuQuy3.setFont(font1);
-        lblDoanhThuQuy4.setFont(font1);
-        font1 = new Font("Times New Roman", Font.BOLD, 28);
-        lblTongDoanhThu.setFont(font1);
+        pnThongKeTong.add(createStatCard("San pham", lblThongKeThucDon, 98, 90, 369, 165));
+        pnThongKeTong.add(createStatCard("Khach hang", lblThongKeKhachHang, 563, 90, 369, 165));
+        pnThongKeTong.add(createStatCard("Nhan vien", lblThongKeNhanVien, 98, 305, 369, 165));
+        pnThongKeTong.add(createStatCard("Doanh thu", lblThongKeDoanhThu, 563, 305, 369, 165));
 
-        lblDoanhThuQuy1.setForeground(Color.WHITE);
-        lblDoanhThuQuy2.setForeground(Color.WHITE);
-        lblDoanhThuQuy3.setForeground(Color.WHITE);
-        lblDoanhThuQuy4.setForeground(Color.WHITE);
-        lblTongDoanhThu.setForeground(Color.WHITE);
-
-        int x = 265;
-        int y = 673;
-        lblDoanhThuQuy1.setBounds(x, y, 167, 63);
-        lblDoanhThuQuy2.setBounds(x += 167, y, 167, 63);
-        lblDoanhThuQuy3.setBounds(x += 167, y, 167, 63);
-        lblDoanhThuQuy4.setBounds(x += 167, y, 167, 63);
-        lblTongDoanhThu.setBounds(265, 735, 667, 63);
-
-        pnThongKeTong.add(lblTongDoanhThu);
-        pnThongKeTong.add(lblDoanhThuQuy1);
-        pnThongKeTong.add(lblDoanhThuQuy2);
-        pnThongKeTong.add(lblDoanhThuQuy3);
-        pnThongKeTong.add(lblDoanhThuQuy4);
+        JLabel lblYear = new JLabel("Nam thong ke", JLabel.CENTER);
+        lblYear.setFont(new Font("Times New Roman", Font.BOLD, 18));
+        lblYear.setForeground(titleColor);
+        lblYear.setBounds(w / 2 - 80, 505, 160, 25);
+        pnThongKeTong.add(lblYear);
 
         cmbNam = new JComboBox<>();
         int year = Calendar.getInstance().get(Calendar.YEAR);
-        for (int i = year; i >= year - 1; i--)
+        for (int i = year; i >= year - 1; i--) {
             cmbNam.addItem(i);
+        }
         cmbNam.setFont(new Font("Times New Roman", Font.PLAIN, 18));
-        cmbNam.setBounds(w / 2 - 100 / 2, 560, 120, 35);
+        cmbNam.setBounds(w / 2 - 60, 535, 120, 35);
         pnThongKeTong.add(cmbNam);
 
-        JLabel lblBackgroundBang = new JLabel(new ImageIcon("image/ManagerUI/bangThongKe.png"));
-        lblBackgroundBang.setBounds(98, 610, 834, 189);
-        pnThongKeTong.add(lblBackgroundBang);
+        JPanel pnRevenue = new JPanel(null);
+        pnRevenue.setBackground(cardColor);
+        pnRevenue.setBorder(BorderFactory.createLineBorder(softBorder));
+        pnRevenue.setBounds(98, 600, 834, 200);
+
+        JLabel lblRevenueTitle = new JLabel("Doanh thu theo quy", JLabel.CENTER);
+        lblRevenueTitle.setFont(new Font("Times New Roman", Font.BOLD, 20));
+        lblRevenueTitle.setForeground(titleColor);
+        lblRevenueTitle.setBounds(0, 12, 834, 28);
+        pnRevenue.add(lblRevenueTitle);
+
+        lblDoanhThuQuy1 = createRevenueLabel();
+        lblDoanhThuQuy2 = createRevenueLabel();
+        lblDoanhThuQuy3 = createRevenueLabel();
+        lblDoanhThuQuy4 = createRevenueLabel();
+        lblTongDoanhThu = createRevenueTotalLabel();
+
+        lblDoanhThuQuy1.setBounds(80, 65, 150, 42);
+        lblDoanhThuQuy2.setBounds(250, 65, 150, 42);
+        lblDoanhThuQuy3.setBounds(420, 65, 150, 42);
+        lblDoanhThuQuy4.setBounds(590, 65, 150, 42);
+        lblTongDoanhThu.setBounds(80, 130, 674, 44);
+
+        pnRevenue.add(createSmallLabel("Quy 1", 80, 42));
+        pnRevenue.add(createSmallLabel("Quy 2", 250, 42));
+        pnRevenue.add(createSmallLabel("Quy 3", 420, 42));
+        pnRevenue.add(createSmallLabel("Quy 4", 590, 42));
+        pnRevenue.add(lblDoanhThuQuy1);
+        pnRevenue.add(lblDoanhThuQuy2);
+        pnRevenue.add(lblDoanhThuQuy3);
+        pnRevenue.add(lblDoanhThuQuy4);
+        pnRevenue.add(lblTongDoanhThu);
+        pnThongKeTong.add(pnRevenue);
 
         pnMain.add(pnThongKeTong, "1");
 
         pnThongKeChiTiet = new TransparentPanel(null);
+        pnThongKeChiTiet.setBackground(colorPanel);
 
-        btnBack = new JButton(new ImageIcon("image/icons8_undo_40px.png"));
-        btnBack.setToolTipText("Quay lại");
-        btnBack.setBounds(10, 10, 45, 45);
+        btnBack = createActionButton("Quay lai");
+        btnBack.setToolTipText("Quay lai");
+        btnBack.setBounds(20, 18, 100, 34);
         pnThongKeChiTiet.add(btnBack);
 
-        JLabel lblBackGroundBangChiTiet = new JLabel(new ImageIcon("image/ManagerUI/bangChiTiet.png"));
-        lblBackGroundBangChiTiet.setBounds(172, 10, 686, 363);
-        pnThongKeChiTiet.add(lblBackGroundBangChiTiet);
+        JPanel pnDetail = new JPanel(null);
+        pnDetail.setBackground(cardColor);
+        pnDetail.setBorder(BorderFactory.createLineBorder(softBorder));
+        pnDetail.setBounds(172, 50, 686, 363);
 
-        lblMon1 = new JLabel("0");
-        lblMon2 = new JLabel("0");
-        lblMon3 = new JLabel("0");
-        lblMon4 = new JLabel("0");
-        lblMon5 = new JLabel("0");
-        lblSoLuong1 = new JLabel("0", JLabel.CENTER);
-        lblSoLuong2 = new JLabel("0", JLabel.CENTER);
-        lblSoLuong3 = new JLabel("0", JLabel.CENTER);
-        lblSoLuong4 = new JLabel("0", JLabel.CENTER);
-        lblSoLuong5 = new JLabel("0", JLabel.CENTER);
+        JLabel lblDetailTitle = new JLabel("Top san pham ban chay", JLabel.CENTER);
+        lblDetailTitle.setFont(new Font("Times New Roman", Font.BOLD, 22));
+        lblDetailTitle.setForeground(titleColor);
+        lblDetailTitle.setBounds(0, 18, 686, 32);
+        pnDetail.add(lblDetailTitle);
 
-        x = 236;
-        y = 123;
-        lblMon1.setBounds(x, y, 493, 50);
-        lblMon2.setBounds(x, y += 50, 493, 50);
-        lblMon3.setBounds(x, y += 50, 493, 50);
-        lblMon4.setBounds(x, y += 50, 493, 50);
-        lblMon5.setBounds(x, y += 50, 493, 50);
-        x = 729;
-        y = 123;
-        lblSoLuong1.setBounds(x, y, 128, 50);
-        lblSoLuong2.setBounds(x, y += 50, 128, 50);
-        lblSoLuong3.setBounds(x, y += 50, 128, 50);
-        lblSoLuong4.setBounds(x, y += 50, 128, 50);
-        lblSoLuong5.setBounds(x, y += 50, 128, 50);
+        lblMon1 = createDetailLabel();
+        lblMon2 = createDetailLabel();
+        lblMon3 = createDetailLabel();
+        lblMon4 = createDetailLabel();
+        lblMon5 = createDetailLabel();
+        lblSoLuong1 = createDetailNumberLabel();
+        lblSoLuong2 = createDetailNumberLabel();
+        lblSoLuong3 = createDetailNumberLabel();
+        lblSoLuong4 = createDetailNumberLabel();
+        lblSoLuong5 = createDetailNumberLabel();
 
-        lblMon1.setForeground(Color.BLACK);
-        lblMon2.setForeground(Color.BLACK);
-        lblMon3.setForeground(Color.BLACK);
-        lblMon4.setForeground(Color.BLACK);
-        lblMon5.setForeground(Color.BLACK);
-        lblSoLuong1.setForeground(Color.BLACK);
-        lblSoLuong2.setForeground(Color.BLACK);
-        lblSoLuong3.setForeground(Color.BLACK);
-        lblSoLuong4.setForeground(Color.BLACK);
-        lblSoLuong5.setForeground(Color.BLACK);
-
-        Font fontChiTiet = new Font("Times New Roman", Font.BOLD, 18);
-        lblMon1.setFont(fontChiTiet);
-        lblMon2.setFont(fontChiTiet);
-        lblMon3.setFont(fontChiTiet);
-        lblMon4.setFont(fontChiTiet);
-        lblMon5.setFont(fontChiTiet);
-        lblSoLuong1.setFont(fontChiTiet);
-        lblSoLuong2.setFont(fontChiTiet);
-        lblSoLuong3.setFont(fontChiTiet);
-        lblSoLuong4.setFont(fontChiTiet);
-        lblSoLuong5.setFont(fontChiTiet);
-
-        pnThongKeChiTiet.add(lblMon1);
-        pnThongKeChiTiet.add(lblMon2);
-        pnThongKeChiTiet.add(lblMon3);
-        pnThongKeChiTiet.add(lblMon4);
-        pnThongKeChiTiet.add(lblMon5);
-        pnThongKeChiTiet.add(lblSoLuong1);
-        pnThongKeChiTiet.add(lblSoLuong2);
-        pnThongKeChiTiet.add(lblSoLuong3);
-        pnThongKeChiTiet.add(lblSoLuong4);
-        pnThongKeChiTiet.add(lblSoLuong5);
+        int y = 80;
+        addDetailRow(pnDetail, lblMon1, lblSoLuong1, y);
+        addDetailRow(pnDetail, lblMon2, lblSoLuong2, y += 50);
+        addDetailRow(pnDetail, lblMon3, lblSoLuong3, y += 50);
+        addDetailRow(pnDetail, lblMon4, lblSoLuong4, y += 50);
+        addDetailRow(pnDetail, lblMon5, lblSoLuong5, y += 50);
+        pnThongKeChiTiet.add(pnDetail);
 
         pnMain.add(pnThongKeChiTiet, "2");
-
         this.add(pnMain, BorderLayout.CENTER);
         hienThiThongKe();
+    }
+
+    private JLabel createNumberLabel() {
+        JLabel label = new JLabel("0", JLabel.CENTER);
+        label.setFont(new Font("Times New Roman", Font.BOLD, 42));
+        label.setForeground(primaryBlue);
+        return label;
+    }
+
+    private JLabel createRevenueLabel() {
+        JLabel label = new JLabel("0", JLabel.CENTER);
+        label.setFont(new Font("Times New Roman", Font.BOLD, 20));
+        label.setForeground(titleColor);
+        return label;
+    }
+
+    private JLabel createRevenueTotalLabel() {
+        JLabel label = new JLabel("0", JLabel.CENTER);
+        label.setFont(new Font("Times New Roman", Font.BOLD, 26));
+        label.setForeground(primaryBlue);
+        return label;
+    }
+
+    private JLabel createSmallLabel(String text, int x, int y) {
+        JLabel label = new JLabel(text, JLabel.CENTER);
+        label.setFont(new Font("Times New Roman", Font.BOLD, 16));
+        label.setForeground(new Color(0x52616B));
+        label.setBounds(x, y, 150, 25);
+        return label;
+    }
+
+    private JPanel createStatCard(String title, JLabel numberLabel, int x, int y, int width, int height) {
+        JPanel card = new JPanel(null);
+        card.setBackground(cardColor);
+        card.setBorder(BorderFactory.createLineBorder(softBorder));
+        card.setBounds(x, y, width, height);
+
+        JLabel titleLabel = new JLabel(title, JLabel.CENTER);
+        titleLabel.setFont(new Font("Times New Roman", Font.BOLD, 20));
+        titleLabel.setForeground(titleColor);
+        titleLabel.setBounds(0, 25, width, 35);
+        numberLabel.setBounds(0, 70, width, 65);
+        card.add(titleLabel);
+        card.add(numberLabel);
+        return card;
+    }
+
+    private JLabel createDetailLabel() {
+        JLabel label = new JLabel("0");
+        label.setFont(new Font("Times New Roman", Font.BOLD, 18));
+        label.setForeground(titleColor);
+        return label;
+    }
+
+    private JLabel createDetailNumberLabel() {
+        JLabel label = new JLabel("0", JLabel.CENTER);
+        label.setFont(new Font("Times New Roman", Font.BOLD, 18));
+        label.setForeground(primaryBlue);
+        return label;
+    }
+
+    private void addDetailRow(JPanel panel, JLabel productLabel, JLabel quantityLabel, int y) {
+        productLabel.setBounds(55, y, 460, 36);
+        quantityLabel.setBounds(535, y, 95, 36);
+        panel.add(productLabel);
+        panel.add(quantityLabel);
+    }
+
+    private JButton createActionButton(String text) {
+        JButton button = new JButton(text);
+        button.setFont(new Font("Times New Roman", Font.BOLD, 16));
+        button.setForeground(Color.WHITE);
+        button.setBackground(primaryBlue);
+        button.setFocusPainted(false);
+        button.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        return button;
     }
 
     private void addEvents() {
@@ -225,12 +242,12 @@ public class PnQuanLyThongKeGUI extends JPanel {
             hienThiThongKe();
             cardLayoutThongKe.show(pnMain, "2");
         });
-        
+
         btnBack.addActionListener(e -> {
             hienThiThongKe();
             cardLayoutThongKe.show(pnMain, "1");
         });
-        
+
         cmbNam.addActionListener(e -> hienThiThongKe());
     }
 
@@ -244,7 +261,7 @@ public class PnQuanLyThongKeGUI extends JPanel {
         lblDoanhThuQuy2.setText(dcf.format(thongKe.getTongThuQuy(2)));
         lblDoanhThuQuy3.setText(dcf.format(thongKe.getTongThuQuy(3)));
         lblDoanhThuQuy4.setText(dcf.format(thongKe.getTongThuQuy(4)));
-        lblTongDoanhThu.setText(dcf.format(thongKe.getTongDoanhThu()));
+        lblTongDoanhThu.setText("Tong doanh thu: " + dcf.format(thongKe.getTongDoanhThu()));
         lblMon1.setText(thongKe.getTopSanPhamBanChay().get(0).getTenSP());
         lblMon2.setText(thongKe.getTopSanPhamBanChay().get(1).getTenSP());
         lblMon3.setText(thongKe.getTopSanPhamBanChay().get(2).getTenSP());

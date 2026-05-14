@@ -18,7 +18,7 @@ public class CTHoaDonBUS {
 
     public void docListCTHoaDon() {
         this.listCTHoaDon = ctHDDAO.getListCTHoaDon();
-        // Cập nhật thông tin sản phẩm cho mỗi chi tiết hóa đơn
+        // Cap nhat thong tin san pham cho moi chi tiet hoa don
         for (CTHoaDon cthd : listCTHoaDon) {
             SanPham sp = spBUS.getSanPham(String.valueOf(cthd.getMaSP()));
             cthd.setSanPham(sp);
@@ -55,7 +55,7 @@ public class CTHoaDonBUS {
         cthd.setSoLuong(Integer.parseInt(soLuong));
         cthd.setThanhTien(Integer.parseInt(thanhTien));
         
-        // Lấy thông tin sản phẩm
+        // Lay thong tin san pham
         SanPham sp = spBUS.getSanPham(maSP);
         cthd.setSanPham(sp);
 

@@ -15,8 +15,8 @@ public class DlgQuanLyLoai extends javax.swing.JDialog {
     public DlgQuanLyLoai() {
         initComponents();
         dtmLoai = new DefaultTableModel();
-        dtmLoai.addColumn("Mã loại");
-        dtmLoai.addColumn("Tên loại");
+        dtmLoai.addColumn("Ma loai");
+        dtmLoai.addColumn("Ten loai");
         tblLoai.setModel(dtmLoai);
         loadDataLenTblLoai();
         this.setLocationRelativeTo(null);
@@ -63,7 +63,7 @@ public class DlgQuanLyLoai extends javax.swing.JDialog {
         setModal(true);
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        jLabel1.setText("QUẢN LÝ DANH MỤC");
+        jLabel1.setText("QUAN LY DANH MUC");
         jPanel1.add(jLabel1);
 
         tblLoai.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
@@ -72,7 +72,7 @@ public class DlgQuanLyLoai extends javax.swing.JDialog {
 
             },
             new String [] {
-                "Mã loại", "Tên loại"
+                "Ma loai", "Ten loai"
             }
         ));
         tblLoai.getTableHeader().setReorderingAllowed(false);
@@ -99,7 +99,7 @@ public class DlgQuanLyLoai extends javax.swing.JDialog {
         jPanel3.setLayout(new javax.swing.BoxLayout(jPanel3, javax.swing.BoxLayout.Y_AXIS));
 
         lblMaLoai.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        lblMaLoai.setText("Mã loại");
+        lblMaLoai.setText("Ma loai");
         lblMaLoai.setPreferredSize(new java.awt.Dimension(63, 22));
         pnMaLoai.add(lblMaLoai);
 
@@ -111,7 +111,7 @@ public class DlgQuanLyLoai extends javax.swing.JDialog {
         jPanel3.add(pnMaLoai);
 
         lblTenLoai.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        lblTenLoai.setText("Tên loại");
+        lblTenLoai.setText("Ten loai");
         pnTenLoai.add(lblTenLoai);
 
         txtTenLoai.setColumns(15);
@@ -126,7 +126,7 @@ public class DlgQuanLyLoai extends javax.swing.JDialog {
         jPanel3.add(pnTenLoai);
 
         btnThem.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        btnThem.setText("Thêm");
+        btnThem.setText("Them");
         btnThem.setPreferredSize(new java.awt.Dimension(80, 35));
         btnThem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -136,7 +136,7 @@ public class DlgQuanLyLoai extends javax.swing.JDialog {
         pnButton.add(btnThem);
 
         btnSua.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        btnSua.setText("Sửa");
+        btnSua.setText("Sua");
         btnSua.setPreferredSize(new java.awt.Dimension(80, 35));
         btnSua.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -146,7 +146,7 @@ public class DlgQuanLyLoai extends javax.swing.JDialog {
         pnButton.add(btnSua);
 
         btnXoa.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        btnXoa.setText("Xoá");
+        btnXoa.setText("Xoa");
         btnXoa.setPreferredSize(new java.awt.Dimension(80, 35));
         btnXoa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -196,7 +196,7 @@ public class DlgQuanLyLoai extends javax.swing.JDialog {
     }//GEN-LAST:event_btnThemActionPerformed
 
     private void btnXoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXoaActionPerformed
-        MyDialog dlg = new MyDialog("Bạn có chắc chắn muốn xoá?", MyDialog.WARNING_DIALOG);
+        MyDialog dlg = new MyDialog("Ban co chac chan muon xoa?", MyDialog.WARNING_DIALOG);
         if (dlg.OK_OPTION == dlg.getAction()) {
             String ma = txtMaLoai.getText();
             if (loaiBUS.xoaLoai(ma)) {

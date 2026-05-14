@@ -1,8 +1,8 @@
-CREATE DATABASE IF NOT EXISTS `coffee_shop_management`;
+﻿CREATE DATABASE IF NOT EXISTS `coffee_shop_management`;
 USE `coffee_shop_management`;
 SET SQL_MODE='NO_AUTO_VALUE_ON_ZERO';
 
--- BẢNG ĐỘC LẬP (Không chứa khóa ngoại)
+-- BANG DOC LAP (Khong chua khoa ngoai)
 CREATE TABLE `giamgia` (
   `MaGiam` int NOT NULL AUTO_INCREMENT,
   `TenGiamGia` text NOT NULL,
@@ -47,7 +47,7 @@ CREATE TABLE `nhanvien` (
   PRIMARY KEY (`MaNV`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
--- BẢNG PHỤ THUỘC (Có khóa ngoại)
+-- BANG PHU THUOC (Co khoa ngoai)
 CREATE TABLE `sanpham` (
   `MaSP` int NOT NULL AUTO_INCREMENT,
   `TenSP` varchar(255) NOT NULL,
@@ -99,62 +99,62 @@ CREATE TABLE `cthoadon` (
   CONSTRAINT `fk_cthoadon_sanpham` FOREIGN KEY (`MaSP`) REFERENCES `sanpham` (`MaSP`) ON DELETE RESTRICT ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
--- INSERT DỮ LIỆU MẪU
+-- INSERT DU LIEU MAU
 INSERT INTO `giamgia` VALUES 
-(1,'Không giảm giá',0,0,'2025-05-05','2042-12-31'),
-(2,'Khách hàng thân thiết',20,0,'2025-05-05','2026-06-01');
+(1,'Khong giam gia',0,0,'2025-05-05','2042-12-31'),
+(2,'Khach hang than thiet',20,0,'2025-05-05','2026-06-01');
 
 INSERT INTO `khachhang` VALUES 
-(1,'Ngô Quang','Vinh','Nam',480000,1),
-(2,'Đỗ Thiện','Quân','Nam',130000,1),
-(3,'Nguyễn Minh','Nhật','Nữ',468000,1),
-(4,'Nguyễn Hải','Sơn','Nam',32000,1);
+(1,'Ngo Quang','Vinh','Nam',480000,1),
+(2,'Do Thien','Quan','Nam',130000,1),
+(3,'Nguyen Minh','Nhat','Nu',468000,1),
+(4,'Nguyen Hai','Son','Nam',32000,1);
 
 INSERT INTO `loai` VALUES 
-(1,'Đồ uống'),
-(2,'Bánh'),
+(1,'Do uong'),
+(2,'Banh'),
 (3,'Soft drink'),
 (4,'Beer');
 
 INSERT INTO `phanquyen` VALUES 
 ('Default',0,0,0,0),
-('Nhân viên',0,0,1,0),
-('Quản lý',0,1,1,1),
-('Quản trị',1,1,1,1);
+('Nhan vien',0,0,1,0),
+('Quan ly',0,1,1,1),
+('Quan tri',1,1,1,1);
 
 INSERT INTO `nhanvien` VALUES 
-(0,'Admin','','','Quản trị'),
-(1,'Ngô Quang','Vinh','Nam','Quản lý'),
-(2,'Đỗ Minh','Quân','Nam','Nhân viên'),
-(5,'Lê Thuỳ','Na','Nữ','Nhân viên');
+(0,'Admin','','','Quan tri'),
+(1,'Ngo Quang','Vinh','Nam','Quan ly'),
+(2,'Do Minh','Quan','Nam','Nhan vien'),
+(5,'Le Thuy','Na','Nu','Nhan vien');
 
 INSERT INTO `sanpham` VALUES 
-(1,'Almond',2,20,'Cái','Almond.png',30000),
-(2,'Bạc Xỉu',1,100,'Cốc','bac_xiu.png',20000),
-(3,'Blue Berry Smothie',1,99,'Cốc','blue_berry_smothie.png',50000),
-(4,'Chocolate Cake',2,19,'Cái','Chocolate.png',30000),
-(5, 'Chocolate Cookie', 1, 97, 'Cốc', 'chocolate_cookie.png', 50000),
+(1,'Almond',2,20,'Cai','Almond.png',30000),
+(2,'Bac Xiu',1,100,'Coc','bac_xiu.png',20000),
+(3,'Blue Berry Smothie',1,99,'Coc','blue_berry_smothie.png',50000),
+(4,'Chocolate Cake',2,19,'Cai','Chocolate.png',30000),
+(5, 'Chocolate Cookie', 1, 97, 'Coc', 'chocolate_cookie.png', 50000),
 (6,'Coke',3,97,'Lon','cocacola.png',20000),
-(7,'Coconut Cake',2,18,'Cái','coconut.png',30000),
-(8,'Coconut Coffee',1,93,'Cốc','coconut_coffee.png',50000),
-(9,'Coconut Matcha Latte',1,93,'Cốc','coconut_matcha_latte.png',40000),
+(7,'Coconut Cake',2,18,'Cai','coconut.png',30000),
+(8,'Coconut Coffee',1,93,'Coc','coconut_coffee.png',50000),
+(9,'Coconut Matcha Latte',1,93,'Coc','coconut_matcha_latte.png',40000),
 (16,'Hanoi Beer',4,97,'Chai','hanoi_beer.png',30000);
 
 
 INSERT INTO `taikhoan` VALUES 
-(0,'admin','admin','Quản trị',1),
-(1,'ql01','ql01','Quản lý',1),
-(2,'nv01','nv01','Nhân viên',1),
-(5,'nv02','nv02','Nhân viên',1);
+(0,'admin','admin','Quan tri',1),
+(1,'ql01','ql01','Quan ly',1),
+(2,'nv01','nv01','Nhan vien',1),
+(5,'nv02','nv02','Nhan vien',1);
 
 INSERT INTO `hoadon` VALUES 
-(1, 1, 1, '2025-05-09', 180000, 'Đã thanh toán'),
-(2, 2, 2, '2025-05-09', 130000, 'Đã thanh toán'),
-(4, 4, 0, '2025-05-10', 32000, 'Đã thanh toán'),
-(5, 1, 0, '2025-05-10', 250000, 'Đã thanh toán'),
-(6, 3, 0, '2025-05-10', 168000, 'Đã thanh toán'),
-(7, 3, 0, '2025-05-10', 40000, 'Đã thanh toán'),
-(8, 1, 0, '2025-05-09', 50000, 'Đã thanh toán');
+(1, 1, 1, '2025-05-09', 180000, 'Da thanh toan'),
+(2, 2, 2, '2025-05-09', 130000, 'Da thanh toan'),
+(4, 4, 0, '2025-05-10', 32000, 'Da thanh toan'),
+(5, 1, 0, '2025-05-10', 250000, 'Da thanh toan'),
+(6, 3, 0, '2025-05-10', 168000, 'Da thanh toan'),
+(7, 3, 0, '2025-05-10', 40000, 'Da thanh toan'),
+(8, 1, 0, '2025-05-09', 50000, 'Da thanh toan');
 
 INSERT INTO `cthoadon` VALUES 
 (1, 1, 2, 20000, 40000),

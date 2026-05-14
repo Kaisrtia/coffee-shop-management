@@ -15,7 +15,7 @@ public class DlgCapTaiKhoan extends javax.swing.JDialog {
     public DlgCapTaiKhoan(String maNV) {
         this.maNV = maNV;
         initComponents();
-        this.setTitle("Cấp tài khoản");
+        this.setTitle("Cap tai khoan");
         this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         this.setLocationRelativeTo(null);
         this.setModal(true);
@@ -60,17 +60,17 @@ public class DlgCapTaiKhoan extends javax.swing.JDialog {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         lblTitle.setFont(new java.awt.Font("Times New Roman", 1, 26)); // NOI18N
-        lblTitle.setText("Cấp Tài khoản nhân viên");
+        lblTitle.setText("Cap Tai khoan nhan vien");
         pnTitle.add(lblTitle);
 
         jLabel3.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        jLabel3.setText("Mã nhân viên");
+        jLabel3.setText("Ma nhan vien");
 
         txtMaNV.setEditable(false);
         txtMaNV.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
 
         jLabel4.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        jLabel4.setText("Tên đăng nhập");
+        jLabel4.setText("Ten dang nhap");
 
         txtTenDangNhap.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         txtTenDangNhap.addActionListener(new java.awt.event.ActionListener() {
@@ -80,7 +80,7 @@ public class DlgCapTaiKhoan extends javax.swing.JDialog {
         });
 
         jLabel5.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        jLabel5.setText("Quyền");
+        jLabel5.setText("Quyen");
 
         cmbQuyen.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
 
@@ -120,7 +120,7 @@ public class DlgCapTaiKhoan extends javax.swing.JDialog {
         );
 
         btnTaoTaiKhoan.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        btnTaoTaiKhoan.setText("Cấp tài khoản");
+        btnTaoTaiKhoan.setText("Cap tai khoan");
         btnTaoTaiKhoan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnTaoTaiKhoanActionPerformed(evt);

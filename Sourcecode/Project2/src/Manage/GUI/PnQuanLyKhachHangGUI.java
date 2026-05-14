@@ -47,20 +47,20 @@ public class PnQuanLyKhachHangGUI extends JPanel {
         this.setBackground(colorPanel);
         this.setBorder(BorderFactory.createEmptyBorder(15, 15, 15, 15));
 
-        // ==================== PANEL CHÍNH ====================
+        // ==================== PANEL CHINH ====================
         JPanel mainPanel = new JPanel(new BorderLayout(10, 10));
         mainPanel.setBackground(colorPanel);
 
-        // ==================== PANEL TIÊU ĐỀ ====================
+        // ==================== PANEL TIEU DE ====================
         JPanel pnTitle = new JPanel(new BorderLayout());
         pnTitle.setBackground(colorPanel);
 
-        JLabel lblTitle = new JLabel("QUẢN LÝ KHÁCH HÀNG");
+        JLabel lblTitle = new JLabel("QUAN LY KHACH HANG");
         lblTitle.setFont(new Font("Segoe UI", Font.BOLD, 24));
         lblTitle.setBorder(BorderFactory.createEmptyBorder(0, 0, 15, 0));
 
         btnReset = new JButton(new ImageIcon("image/Refresh-icon.png"));
-        btnReset.setToolTipText("Làm mới");
+        btnReset.setToolTipText("Lam moi");
         btnReset.setPreferredSize(new Dimension(40, 40));
 
         pnTitle.add(lblTitle, BorderLayout.WEST);
@@ -68,15 +68,15 @@ public class PnQuanLyKhachHangGUI extends JPanel {
 
         mainPanel.add(pnTitle, BorderLayout.NORTH);
 
-        // ==================== PANEL THÔNG TIN VÀ TÌM KIẾM ====================
+        // ==================== PANEL THONG TIN VA TIM KIEM ====================
         JPanel pnTop = new JPanel();
         pnTop.setLayout(new BoxLayout(pnTop, BoxLayout.Y_AXIS));
         pnTop.setBackground(colorPanel);
 
-        // ==== Panel Thông tin khách hàng ====
+        // ==== Panel Thong tin khach hang ====
         JPanel pnInfo = new JPanel(new GridBagLayout());
         pnInfo.setBackground(colorPanel);
-        pnInfo.setBorder(BorderFactory.createTitledBorder("Thông tin khách hàng"));
+        pnInfo.setBorder(BorderFactory.createTitledBorder("Thong tin khach hang"));
         pnInfo.setPreferredSize(new Dimension(600, 180));
 
         Font bigFont = new Font("Times New Roman", Font.PLAIN, 16);
@@ -90,7 +90,7 @@ public class PnQuanLyKhachHangGUI extends JPanel {
 
         gbc.weightx = 0.1;
         gbc.gridx = 0; gbc.gridy = row;
-        JLabel lblMaKH = new JLabel("Mã KH");
+        JLabel lblMaKH = new JLabel("Ma KH");
         lblMaKH.setFont(bigFont);
         pnInfo.add(lblMaKH, gbc);
         gbc.gridx = 1; gbc.weightx = 0.35;
@@ -102,7 +102,7 @@ public class PnQuanLyKhachHangGUI extends JPanel {
 
         gbc.weightx = 0.1;
         gbc.gridx = 2;
-        JLabel lblHo = new JLabel("Họ đệm");
+        JLabel lblHo = new JLabel("Ho dem");
         lblHo.setFont(bigFont);
         pnInfo.add(lblHo, gbc);
         gbc.gridx = 3; gbc.weightx = 0.2;
@@ -113,7 +113,7 @@ public class PnQuanLyKhachHangGUI extends JPanel {
 
         row++;
         gbc.gridy = row; gbc.gridx = 0; gbc.weightx = 0.1;
-        JLabel lblTen = new JLabel("Tên");
+        JLabel lblTen = new JLabel("Ten");
         lblTen.setFont(bigFont);
         pnInfo.add(lblTen, gbc);
         gbc.gridx = 1; gbc.weightx = 0.35;
@@ -123,21 +123,21 @@ public class PnQuanLyKhachHangGUI extends JPanel {
         pnInfo.add(txtTen, gbc);
 
         gbc.gridx = 2; gbc.weightx = 0.1;
-        JLabel lblGioiTinh = new JLabel("Giới tính");
+        JLabel lblGioiTinh = new JLabel("Gioi tinh");
         lblGioiTinh.setFont(bigFont);
         pnInfo.add(lblGioiTinh, gbc);
         gbc.gridx = 3; gbc.weightx = 0.2;
         cmbGioiTinh = new JComboBox<>();
-        cmbGioiTinh.addItem("Chọn giới tính");
+        cmbGioiTinh.addItem("Chon gioi tinh");
         cmbGioiTinh.addItem("Nam");
-        cmbGioiTinh.addItem("Nữ");
+        cmbGioiTinh.addItem("Nu");
         cmbGioiTinh.setPreferredSize(new Dimension(100, 35));
         cmbGioiTinh.setFont(bigFont);
         pnInfo.add(cmbGioiTinh, gbc);
 
         row++;
         gbc.gridy = row; gbc.gridx = 0; gbc.weightx = 0.1;
-        JLabel lblTongChiTieu = new JLabel("Tổng chi tiêu");
+        JLabel lblTongChiTieu = new JLabel("Tong chi tieu");
         lblTongChiTieu.setFont(bigFont);
         pnInfo.add(lblTongChiTieu, gbc);
         gbc.gridx = 1; gbc.weightx = 0.35;
@@ -149,9 +149,9 @@ public class PnQuanLyKhachHangGUI extends JPanel {
 
         gbc.gridx = 2; gbc.gridwidth = 2;
         JPanel pnButton = new JPanel(new FlowLayout(FlowLayout.LEFT, 15, 0));
-        btnThem = new JButton("Thêm");
-        btnSua = new JButton(  "Sửa");
-        btnXoa = new JButton("Xoá");
+        btnThem = new JButton("Them");
+        btnSua = new JButton("Sua");
+        btnXoa = new JButton("Xoa");
         btnThem.setPreferredSize(new Dimension(120, 30));
         btnSua.setPreferredSize(new Dimension(120, 30));
         btnXoa.setPreferredSize(new Dimension(120, 30));
@@ -164,56 +164,50 @@ public class PnQuanLyKhachHangGUI extends JPanel {
         pnButton.setBackground(colorPanel);
         pnInfo.add(pnButton, gbc);
 
-        // ==== Panel Tìm kiếm ====
-        JPanel pnSearch = new JPanel(new GridBagLayout());
+        // ==== Panel Tim kiem ====
+        // ==== Panel Tim kiem ====
+        JPanel pnSearch = new JPanel();
+        pnSearch.setLayout(new BoxLayout(pnSearch, BoxLayout.Y_AXIS));
         pnSearch.setBackground(colorPanel);
-        pnSearch.setBorder(BorderFactory.createTitledBorder("Tìm kiếm"));
+        pnSearch.setBorder(BorderFactory.createTitledBorder("Tim kiem"));
         pnSearch.setPreferredSize(new Dimension(700, 130));
-        GridBagConstraints gbcSearch = new GridBagConstraints();
-        gbcSearch.insets = new Insets(8, 8, 8, 8);
-        gbcSearch.anchor = GridBagConstraints.WEST;
-        gbcSearch.fill = GridBagConstraints.HORIZONTAL;
 
-        // Dòng từ khoá
-        gbcSearch.gridx = 0; gbcSearch.gridy = 0; gbcSearch.gridwidth = 1;
-        JLabel lblTuKhoa = new JLabel("Từ khoá:");
+        JPanel pnKeyword = new JPanel(new FlowLayout(FlowLayout.CENTER, 12, 8));
+        pnKeyword.setBackground(colorPanel);
+        JLabel lblTuKhoa = new JLabel("Tu khoa:");
         lblTuKhoa.setFont(bigFont);
-        pnSearch.add(lblTuKhoa, gbcSearch);
-        gbcSearch.gridx = 1; gbcSearch.gridwidth = 3;
         txtTukhoa = new JTextField();
-        txtTukhoa.setPreferredSize(new Dimension(350, 36));
+        txtTukhoa.setPreferredSize(new Dimension(350, 34));
         txtTukhoa.setFont(bigFont);
-        pnSearch.add(txtTukhoa, gbcSearch);
+        pnKeyword.add(lblTuKhoa);
+        pnKeyword.add(txtTukhoa);
 
-        // Dòng chi tiêu từ -> đến
-        gbcSearch.gridy = 1; gbcSearch.gridx = 0; gbcSearch.gridwidth = 1;
-        JLabel lblChiTieuTu = new JLabel("Chi tiêu từ:");
+        JPanel pnExpense = new JPanel(new FlowLayout(FlowLayout.CENTER, 12, 8));
+        pnExpense.setBackground(colorPanel);
+        JLabel lblChiTieuTu = new JLabel("Chi tieu tu:");
         lblChiTieuTu.setFont(bigFont);
-        pnSearch.add(lblChiTieuTu, gbcSearch);
-        gbcSearch.gridx = 1;
         txtMinchiTieu = new JTextField();
-        txtMinchiTieu.setPreferredSize(new Dimension(140, 36));
+        txtMinchiTieu.setPreferredSize(new Dimension(150, 34));
         txtMinchiTieu.setFont(bigFont);
-        pnSearch.add(txtMinchiTieu, gbcSearch);
-        gbcSearch.gridx = 2;
-        JLabel lblDen = new JLabel("đến:");
+        JLabel lblDen = new JLabel("den:");
         lblDen.setFont(bigFont);
-        pnSearch.add(lblDen, gbcSearch);
-        gbcSearch.gridx = 3;
         txtMaxChiTieu = new JTextField();
-        txtMaxChiTieu.setPreferredSize(new Dimension(140, 36));
+        txtMaxChiTieu.setPreferredSize(new Dimension(150, 34));
         txtMaxChiTieu.setFont(bigFont);
-        pnSearch.add(txtMaxChiTieu, gbcSearch);
-
-        // Nút tìm kiếm cùng dòng với input
-        gbcSearch.gridx = 4; gbcSearch.gridy = 1; gbcSearch.gridwidth = 1;
-        btnTim = createButton("", "image/Search-icon.png");
-        btnTim.setToolTipText("Tìm kiếm");
-        btnTim.setPreferredSize(new Dimension(100, 36));
+        btnTim = createButton("Tim", "image/Search-icon.png");
+        btnTim.setToolTipText("Tim kiem");
+        btnTim.setPreferredSize(new Dimension(100, 34));
         btnTim.setFont(bigFont);
-        pnSearch.add(btnTim, gbcSearch);
+        pnExpense.add(lblChiTieuTu);
+        pnExpense.add(txtMinchiTieu);
+        pnExpense.add(lblDen);
+        pnExpense.add(txtMaxChiTieu);
+        pnExpense.add(btnTim);
 
-        // ==== Đặt 2 panel theo chiều dọc ====
+        pnSearch.add(pnKeyword);
+        pnSearch.add(pnExpense);
+
+        // ==== Dat 2 panel theo chieu doc ====
         pnInfo.setAlignmentX(Component.LEFT_ALIGNMENT);
         pnSearch.setAlignmentX(Component.LEFT_ALIGNMENT);
         pnTop.add(pnInfo);
@@ -222,13 +216,13 @@ public class PnQuanLyKhachHangGUI extends JPanel {
 
         mainPanel.add(pnTop, BorderLayout.CENTER);
 
-        // ==================== PANEL BẢNG DỮ LIỆU ====================
+        // ==================== PANEL BANG DU LIEU ====================
         dtmKhachHang = new DefaultTableModel();
-        dtmKhachHang.addColumn("Mã KH");
-        dtmKhachHang.addColumn("Họ đệm");
-        dtmKhachHang.addColumn("Tên");
-        dtmKhachHang.addColumn("Giới tính");
-        dtmKhachHang.addColumn("Tổng chi tiêu");
+        dtmKhachHang.addColumn("Ma KH");
+        dtmKhachHang.addColumn("Ho dem");
+        dtmKhachHang.addColumn("Ten");
+        dtmKhachHang.addColumn("Gioi tinh");
+        dtmKhachHang.addColumn("Tong chi tieu");
 
         tblKhachHang = new MyTable(dtmKhachHang);
         tblKhachHang.setRowHeight(30);
@@ -236,7 +230,7 @@ public class PnQuanLyKhachHangGUI extends JPanel {
         tblKhachHang.getTableHeader().setFont(headerFont);
 
         JScrollPane scrtblKhachHang = new JScrollPane(tblKhachHang);
-        scrtblKhachHang.setBorder(BorderFactory.createTitledBorder("Danh sách khách hàng"));
+        scrtblKhachHang.setBorder(BorderFactory.createTitledBorder("Danh sach khach hang"));
         
         mainPanel.add(scrtblKhachHang, BorderLayout.SOUTH);
         this.add(mainPanel);
@@ -249,7 +243,7 @@ public class PnQuanLyKhachHangGUI extends JPanel {
         panel.setBackground(colorPanel);
 
         GridBagConstraints gbc = new GridBagConstraints();
-        gbc.insets = new Insets(2, 2, 2, 2); // Padding nhỏ
+        gbc.insets = new Insets(2, 2, 2, 2); // Padding nho
         gbc.anchor = GridBagConstraints.WEST;
 
         JLabel lbl = new JLabel(label);
@@ -281,9 +275,9 @@ public class PnQuanLyKhachHangGUI extends JPanel {
         return button;
     }
 
-    // Các phương thức còn lại giữ nguyên như cũ
+    // Cac phuong thuc con lai giu nguyen nhu cu
     private void addEvents() {
-        // Giữ nguyên toàn bộ phần addEvents() như cũ
+        // Giu nguyen toan bo phan addEvents() nhu cu
         btnReset.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

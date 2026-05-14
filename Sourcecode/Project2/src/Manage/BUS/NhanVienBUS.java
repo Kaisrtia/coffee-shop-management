@@ -29,11 +29,11 @@ public class NhanVienBUS {
         ten = ten.trim();
         chucVu = chucVu.trim();
         if (ten.equals("")) {
-            new MyDialog("Tên không được để trống!", MyDialog.ERROR_DIALOG);
+            new MyDialog("Ten khong duoc de trong!", MyDialog.ERROR_DIALOG);
             return false;
         }
         if (chucVu.equals("")) {
-            new MyDialog("Chức vụ không được để trống!", MyDialog.ERROR_DIALOG);
+            new MyDialog("Chuc vu khong duoc de trong!", MyDialog.ERROR_DIALOG);
             return false;
         }
         NhanVien nv = new NhanVien();
@@ -43,9 +43,9 @@ public class NhanVienBUS {
         nv.setChucVu(chucVu);
         boolean flag = nvDAO.themNhanVien(nv);
         if (!flag) {
-            new MyDialog("Thêm thất bại!", MyDialog.ERROR_DIALOG);
+            new MyDialog("Them that bai!", MyDialog.ERROR_DIALOG);
         } else {
-            new MyDialog("Thêm thành công!", MyDialog.SUCCESS_DIALOG);
+            new MyDialog("Them thanh cong!", MyDialog.SUCCESS_DIALOG);
         }
         return flag;
     }
@@ -56,11 +56,11 @@ public class NhanVienBUS {
         ten = ten.trim();
         chucVu = chucVu.trim();
         if (ten.equals("")) {
-            new MyDialog("Tên không được để trống!", MyDialog.ERROR_DIALOG);
+            new MyDialog("Ten khong duoc de trong!", MyDialog.ERROR_DIALOG);
             return false;
         }
         if (chucVu.equals("")) {
-            new MyDialog("Chức vụ không được để trống!", MyDialog.ERROR_DIALOG);
+            new MyDialog("Chuc vu khong duoc de trong!", MyDialog.ERROR_DIALOG);
             return false;
         }
         NhanVien nv = new NhanVien();
@@ -71,9 +71,9 @@ public class NhanVienBUS {
         nv.setChucVu(chucVu);
         boolean flag = nvDAO.updateNhanVien(nv);
         if (!flag) {
-            new MyDialog("Cập nhập thất bại!", MyDialog.ERROR_DIALOG);
+            new MyDialog("Cap nhap that bai!", MyDialog.ERROR_DIALOG);
         } else {
-            new MyDialog("Cập nhập thành công!", MyDialog.SUCCESS_DIALOG);
+            new MyDialog("Cap nhap thanh cong!", MyDialog.SUCCESS_DIALOG);
         }
         return flag;
     }
@@ -93,19 +93,19 @@ public class NhanVienBUS {
     public boolean xoaNhanVien(String ma) {
         try {
             int maNV = Integer.parseInt(ma);
-            MyDialog dlg = new MyDialog("Bạn có chắc chắn muốn xoá?", MyDialog.WARNING_DIALOG);
+            MyDialog dlg = new MyDialog("Ban co chac chan muon xoa?", MyDialog.WARNING_DIALOG);
             boolean flag = false;
             if (dlg.getAction() == MyDialog.OK_OPTION) {
                 flag = nvDAO.deleteNhanVien(maNV);
                 if (flag) {
-                    new MyDialog("Xoá thành công!", MyDialog.SUCCESS_DIALOG);
+                    new MyDialog("Xoa thanh cong!", MyDialog.SUCCESS_DIALOG);
                 } else {
-                    new MyDialog("Không thể xóa nhân viên này vì đây là nhân viên cuối cùng của loại chức vụ này!", MyDialog.ERROR_DIALOG);
+                    new MyDialog("Khong the xoa nhan vien nay vi day la nhan vien cuoi cung cua loai chuc vu nay!", MyDialog.ERROR_DIALOG);
                 }
             }
             return flag;
         } catch (Exception e) {
-            new MyDialog("Chưa chọn nhân viên!", MyDialog.ERROR_DIALOG);
+            new MyDialog("Chua chon nhan vien!", MyDialog.ERROR_DIALOG);
         }
         return false;
     }

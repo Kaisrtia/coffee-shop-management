@@ -48,7 +48,7 @@ public class DlgTimKhach extends JDialog {
 
         Font font = new Font("Times New Roman", Font.PLAIN, 16);
         JPanel pnTop = new JPanel();
-        JLabel lblTuKhoa = new JLabel("Từ khoá tìm");
+        JLabel lblTuKhoa = new JLabel("Tu khoa tim");
         txtTuKhoa = new JTextField(20);
         lblTuKhoa.setFont(font);
         txtTuKhoa.setFont(font);
@@ -59,19 +59,19 @@ public class DlgTimKhach extends JDialog {
         JPanel pnTable = new JPanel();
         pnTable.setLayout(new BorderLayout());
         dtmKhachHang = new DefaultTableModel();
-        dtmKhachHang.addColumn("Mã KH");
-        dtmKhachHang.addColumn("Họ");
-        dtmKhachHang.addColumn("Tên");
-        dtmKhachHang.addColumn("Giới tính");
-        dtmKhachHang.addColumn("Tổng chi tiêu");
+        dtmKhachHang.addColumn("Ma KH");
+        dtmKhachHang.addColumn("Ho");
+        dtmKhachHang.addColumn("Ten");
+        dtmKhachHang.addColumn("Gioi tinh");
+        dtmKhachHang.addColumn("Tong chi tieu");
         tblKhachHang = new MyTable(dtmKhachHang);
         JScrollPane scrKhachHang = new JScrollPane(tblKhachHang);
         pnTable.add(scrKhachHang, BorderLayout.CENTER);
         con.add(pnTable, BorderLayout.CENTER);
 
         JPanel pnButton = new JPanel();
-        btnChon = new JButton("Chọn");
-        btnThemKhach = new JButton("Thêm khách");
+        btnChon = new JButton("Chon");
+        btnThemKhach = new JButton("Them khach");
         btnChon.setFont(font);
         btnThemKhach.setFont(font);
         pnButton.add(btnChon);

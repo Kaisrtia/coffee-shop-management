@@ -52,7 +52,7 @@ public class PnQuanLySanPhamGUI extends JPanel {
         int h = 844;
 
         JPanel pnTitle = new TransparentPanel();
-        JLabel lblTitle = new JLabel("<html><h1>QUẢN LÝ SẢN PHẨM</h1></html>");
+        JLabel lblTitle = new JLabel("<html><h1>QUAN LY SAN PHAM</h1></html>");
         btnReset = new JButton(new ImageIcon("image/Refresh-icon.png"));
         btnReset.setPreferredSize(new Dimension(40, 40));
         pnTitle.add(lblTitle);
@@ -67,12 +67,12 @@ public class PnQuanLySanPhamGUI extends JPanel {
         pnTextField.setLayout(new BoxLayout(pnTextField, BoxLayout.Y_AXIS));
         JLabel lblMa, lblTen, lblLoai, lblSoLuong, lblDonViTinh, lblDonGia;
 
-        lblMa = new JLabel("Mã SP");
-        lblTen = new JLabel("Tên SP");
-        lblLoai = new JLabel("Loại");
-        lblSoLuong = new JLabel("Số lượng");
-        lblDonViTinh = new JLabel("Đơn vị tính");
-        lblDonGia = new JLabel("Đơn giá");
+        lblMa = new JLabel("Ma SP");
+        lblTen = new JLabel("Ten SP");
+        lblLoai = new JLabel("Loai");
+        lblSoLuong = new JLabel("So luong");
+        lblDonViTinh = new JLabel("Don vi tinh");
+        lblDonGia = new JLabel("Don gia");
 
         txtMa = new JTextField(25);
         txtMa.setEditable(false);
@@ -135,7 +135,7 @@ public class PnQuanLySanPhamGUI extends JPanel {
 
         pnThongTin.add(pnTextField);
 
-        //=================PANEL ẢNH==========
+        //=================PANEL ANH==========
         JPanel pnAnh = new TransparentPanel();
         pnAnh.setLayout(new BoxLayout(pnAnh, BoxLayout.Y_AXIS));
 
@@ -151,7 +151,7 @@ public class PnQuanLySanPhamGUI extends JPanel {
         JPanel pnButtonAnh = new TransparentPanel();
         pnButtonAnh.setPreferredSize(new Dimension(
                 (int) pnChuaAnh.getPreferredSize().getHeight(), 40));
-        btnChonAnh = new JButton("Chọn ảnh");
+        btnChonAnh = new JButton("Chon anh");
         btnChonAnh.setFont(font);
         pnButtonAnh.add(btnChonAnh);
         pnChuaAnh.add(pnButtonAnh);
@@ -161,10 +161,10 @@ public class PnQuanLySanPhamGUI extends JPanel {
 
         JPanel pnButton = new TransparentPanel();
 
-        btnThem = new JButton("Thêm");
-        btnSua = new JButton("Lưu");
-        btnXoa = new JButton("Xoá");
-        btnTim = new JButton("Tìm kiếm");
+        btnThem = new JButton("Them");
+        btnSua = new JButton("Luu");
+        btnXoa = new JButton("Xoa");
+        btnTim = new JButton("Tim kiem");
         
         Font fontButton = new Font("Times New Roman", Font.PLAIN, 16);
         btnThem.setFont(fontButton);
@@ -173,7 +173,7 @@ public class PnQuanLySanPhamGUI extends JPanel {
         btnTim.setFont(fontButton);
         
         JPanel pnTimKiem = new TransparentPanel();
-        JLabel lblTimKiem = new JLabel("Từ khoá tìm");
+        JLabel lblTimKiem = new JLabel("Tu khoa tim");
         lblTimKiem.setFont(font);
         txtTimKiem = new JTextField(20);
         txtTimKiem.setFont(font);
@@ -196,18 +196,18 @@ public class PnQuanLySanPhamGUI extends JPanel {
 
         this.add(pnButton);
 
-        //============PANEL BẢNG===========
+        //============PANEL BANG===========
         JPanel pnTable = new TransparentPanel(new BorderLayout());
-        //====================Bảng hàng hoá====================
-        //<editor-fold defaultstate="collapsed" desc="Bảng sản phẩm">
+        //====================Bang hang hoa====================
+        //<editor-fold defaultstate="collapsed" desc="Bang san pham">
         dtmSanPham = new DefaultTableModel();
-        dtmSanPham.addColumn("Mã SP");
-        dtmSanPham.addColumn("Tên SP");
-        dtmSanPham.addColumn("Loại SP");
-        dtmSanPham.addColumn("Đơn giá");
-        dtmSanPham.addColumn("Số lượng");
-        dtmSanPham.addColumn("Đơn vị tính");
-        dtmSanPham.addColumn("Ảnh");
+        dtmSanPham.addColumn("Ma SP");
+        dtmSanPham.addColumn("Ten SP");
+        dtmSanPham.addColumn("Loai SP");
+        dtmSanPham.addColumn("Don gia");
+        dtmSanPham.addColumn("So luong");
+        dtmSanPham.addColumn("Don vi tinh");
+        dtmSanPham.addColumn("Anh");
         tblSanPham = new MyTable(dtmSanPham);
 
         tblSanPham.getColumnModel().getColumn(0).setCellRenderer(centerRenderer);
@@ -378,11 +378,11 @@ public class PnQuanLySanPhamGUI extends JPanel {
         cmbLoai.removeAllItems();
 
         ArrayList<LoaiSP> dsl = loaiBUS.getDanhSachLoai();
-        cmbLoai.addItem("0 - Chọn loại");
+        cmbLoai.addItem("0 - Chon loai");
         for (LoaiSP loai : dsl) {
             cmbLoai.addItem(loai.getMaLoai() + " - " + loai.getTenLoai());
         }
-        cmbLoai.addItem("Khác...");
+        cmbLoai.addItem("Khac...");
     }
 
     private void xuLyThemLoai() {
@@ -425,7 +425,7 @@ public class PnQuanLySanPhamGUI extends JPanel {
     }
 
     private void xuLyXoaSanPham() {
-        MyDialog dlg = new MyDialog("Bạn có chắc chắn muốn xoá?", MyDialog.WARNING_DIALOG);
+        MyDialog dlg = new MyDialog("Ban co chac chan muon xoa?", MyDialog.WARNING_DIALOG);
         if (dlg.OK_OPTION == dlg.getAction()) {
             boolean flag = spBUS.xoaSanPham(txtMa.getText());
             if (flag) {
@@ -450,7 +450,7 @@ public class PnQuanLySanPhamGUI extends JPanel {
     private void xuLyChonAnh() {
         JFileChooser fileChooser = new MyFileChooser("image/SanPham/");
         FileNameExtensionFilter filter = new FileNameExtensionFilter(
-                "Tệp hình ảnh", "jpg", "png", "jpeg");
+                "Tep hinh anh", "jpg", "png", "jpeg");
         fileChooser.setFileFilter(filter);
         int returnVal = fileChooser.showOpenDialog(null);
 
@@ -462,7 +462,7 @@ public class PnQuanLySanPhamGUI extends JPanel {
 
     private ImageIcon getAnhSP(String src) {
         src = src.trim().equals("") ? "default.png" : src;
-        //Xử lý ảnh
+        //Xu ly anh
         BufferedImage img = null;
         File fileImg = new File(src);
 
@@ -504,6 +504,6 @@ public class PnQuanLySanPhamGUI extends JPanel {
             vec.add(sp.getHinhAnh());
             dtmSanPham.addRow(vec);
         }
-        MyDialog dlg = new MyDialog("Số kết quả tìm được: " + dssp.size(), MyDialog.INFO_DIALOG);
+        MyDialog dlg = new MyDialog("So ket qua tim duoc: " + dssp.size(), MyDialog.INFO_DIALOG);
     }
 }

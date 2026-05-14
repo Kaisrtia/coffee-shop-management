@@ -6,7 +6,7 @@ public class DlgDoiMatKhau extends javax.swing.JDialog {
 
     public DlgDoiMatKhau() {
         initComponents();
-        this.setTitle("Đổi mật khẩu");
+        this.setTitle("Doi mat khau");
         this.setLocationRelativeTo(null);
         this.setModal(true);
     }
@@ -31,11 +31,11 @@ public class DlgDoiMatKhau extends javax.swing.JDialog {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        jLabel1.setText("Đổi mật khẩu");
+        jLabel1.setText("Doi mat khau");
         jPanel1.add(jLabel1);
 
         btnXacNhan.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        btnXacNhan.setText("Xác nhận");
+        btnXacNhan.setText("Xac nhan");
         btnXacNhan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnXacNhanActionPerformed(evt);
@@ -44,7 +44,7 @@ public class DlgDoiMatKhau extends javax.swing.JDialog {
         jPanel3.add(btnXacNhan);
 
         btnHuy.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        btnHuy.setText("Huỷ");
+        btnHuy.setText("Huy");
         btnHuy.setPreferredSize(new java.awt.Dimension(105, 31));
         btnHuy.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -54,13 +54,13 @@ public class DlgDoiMatKhau extends javax.swing.JDialog {
         jPanel3.add(btnHuy);
 
         jLabel5.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        jLabel5.setText("Mật khẩu cũ");
+        jLabel5.setText("Mat khau cu");
 
         jLabel6.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        jLabel6.setText("Mật khẩu mới");
+        jLabel6.setText("Mat khau moi");
 
         jLabel7.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        jLabel7.setText("Nhập lại");
+        jLabel7.setText("Nhap lai");
 
         txtMatKhauCu.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         txtMatKhauCu.addActionListener(new java.awt.event.ActionListener() {

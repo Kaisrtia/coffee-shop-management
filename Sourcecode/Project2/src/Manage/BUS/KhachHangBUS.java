@@ -36,7 +36,7 @@ public class KhachHangBUS {
             }
             return dskh;
         } catch (Exception e) {
-            new MyDialog("Hãy nhập giá trị phù hợp!", MyDialog.ERROR_DIALOG);
+            new MyDialog("Hay nhap gia tri phu hop!", MyDialog.ERROR_DIALOG);
         }
         return null;
     }
@@ -57,11 +57,11 @@ public class KhachHangBUS {
 
     public boolean themKhachHang(String ho, String ten, String gioiTinh) {
         if (ten.trim().equals("")) {
-            new MyDialog("Không được để trống tên!", MyDialog.ERROR_DIALOG);
+            new MyDialog("Khong duoc de trong ten!", MyDialog.ERROR_DIALOG);
             return false;
         }
-        if (gioiTinh.equals("Chọn giới tính")) {
-            new MyDialog("Hãy chọn giới tính!", MyDialog.ERROR_DIALOG);
+        if (gioiTinh.equals("Chon gioi tinh")) {
+            new MyDialog("Hay chon gioi tinh!", MyDialog.ERROR_DIALOG);
             return false;
         }
         KhachHang kh = new KhachHang();
@@ -71,20 +71,20 @@ public class KhachHangBUS {
         kh.setTongChiTieu(0);
         boolean flag = khachHangDAO.addKhachHang(kh);
         if (flag) {
-            new MyDialog("Thêm thành công!", MyDialog.SUCCESS_DIALOG);
+            new MyDialog("Them thanh cong!", MyDialog.SUCCESS_DIALOG);
         } else {
-            new MyDialog("Thêm thất bại!", MyDialog.ERROR_DIALOG);
+            new MyDialog("Them that bai!", MyDialog.ERROR_DIALOG);
         }
         return flag;
     }
 
     public boolean suaKhachHang(String ma, String ho, String ten, String gioiTinh) {
         if (ten.trim().equals("")) {
-            new MyDialog("Không được để trống tên!", MyDialog.ERROR_DIALOG);
+            new MyDialog("Khong duoc de trong ten!", MyDialog.ERROR_DIALOG);
             return false;
         }
-        if (gioiTinh.equals("Chọn giới tính")) {
-            new MyDialog("Hãy chọn giới tính!", MyDialog.ERROR_DIALOG);
+        if (gioiTinh.equals("Chon gioi tinh")) {
+            new MyDialog("Hay chon gioi tinh!", MyDialog.ERROR_DIALOG);
             return false;
         }
         KhachHang kh = new KhachHang();
@@ -93,9 +93,9 @@ public class KhachHangBUS {
         kh.setGioiTinh(gioiTinh);
         boolean flag = khachHangDAO.updateKhachHang(Integer.parseInt(ma), kh);
         if (flag) {
-            new MyDialog("Sửa thành công!", MyDialog.SUCCESS_DIALOG);
+            new MyDialog("Sua thanh cong!", MyDialog.SUCCESS_DIALOG);
         } else {
-            new MyDialog("Sửa thất bại!", MyDialog.ERROR_DIALOG);
+            new MyDialog("Sua that bai!", MyDialog.ERROR_DIALOG);
         }
         return flag;
     }
@@ -104,17 +104,17 @@ public class KhachHangBUS {
         boolean flag = false;
         try {
             int maKH = Integer.parseInt(ma);
-            MyDialog dlg = new MyDialog("Bạn có chắc chắn muốn xoá?", MyDialog.WARNING_DIALOG);
+            MyDialog dlg = new MyDialog("Ban co chac chan muon xoa?", MyDialog.WARNING_DIALOG);
             if(dlg.getAction() == MyDialog.CANCEL_OPTION)
                 return false;
             flag = khachHangDAO.deleteKhachHang(maKH);
         } catch (Exception e) {
-            new MyDialog("Chưa chọn khách hàng!", MyDialog.ERROR_DIALOG);
+            new MyDialog("Chua chon khach hang!", MyDialog.ERROR_DIALOG);
         }
         if (flag) {
-            new MyDialog("Xoá thành công!", MyDialog.SUCCESS_DIALOG);
+            new MyDialog("Xoa thanh cong!", MyDialog.SUCCESS_DIALOG);
         } else {
-            new MyDialog("Xoá thất bại!", MyDialog.ERROR_DIALOG);
+            new MyDialog("Xoa that bai!", MyDialog.ERROR_DIALOG);
         }
         return flag;
     }

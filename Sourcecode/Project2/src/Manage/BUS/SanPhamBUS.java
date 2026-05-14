@@ -84,12 +84,12 @@ public class SanPhamBUS {
 
     public boolean themSanPham(String ten, String loai, String soLuong, String donViTinh, String anh, String donGia) {
         if (ten.trim().isEmpty()) {
-            new MyDialog("Tên SP không được để trống!", MyDialog.ERROR_DIALOG);
+            new MyDialog("Ten SP khong duoc de trong!", MyDialog.ERROR_DIALOG);
             return false;
         }
 
         if (donViTinh.trim().isEmpty()) {
-            new MyDialog("Vui lòng điền đơn vị tính!", MyDialog.ERROR_DIALOG);
+            new MyDialog("Vui long dien don vi tinh!", MyDialog.ERROR_DIALOG);
             return false;
         }
 
@@ -97,7 +97,7 @@ public class SanPhamBUS {
             String[] loaiTmp = loai.split(" - ");
             int maLoai = Integer.parseInt(loaiTmp[0]);
             if (maLoai == 0) {
-                new MyDialog("Vui lòng chọn Loại sản phẩm!", MyDialog.ERROR_DIALOG);
+                new MyDialog("Vui long chon Loai san pham!", MyDialog.ERROR_DIALOG);
                 return false;
             }
 
@@ -113,14 +113,14 @@ public class SanPhamBUS {
             sp.setDonGia(donGiaSP);
 
             if (spDAO.themSanPham(sp)) {
-                new MyDialog("Thêm thành công!", MyDialog.SUCCESS_DIALOG);
+                new MyDialog("Them thanh cong!", MyDialog.SUCCESS_DIALOG);
                 return true;
             } else {
-                new MyDialog("Thêm thất bại!", MyDialog.ERROR_DIALOG);
+                new MyDialog("Them that bai!", MyDialog.ERROR_DIALOG);
                 return false;
             }
         } catch (NumberFormatException e) {
-            new MyDialog("Nhập số hợp lệ cho Đơn giá và Số lượng!", MyDialog.ERROR_DIALOG);
+            new MyDialog("Nhap so hop le cho Don gia va So luong!", MyDialog.ERROR_DIALOG);
         }
         return false;
     }
@@ -148,19 +148,19 @@ public class SanPhamBUS {
 
     public boolean xoaSanPham(String ma) {
         if (ma.trim().isEmpty()) {
-            new MyDialog("Chưa chọn sản phẩm để xoá!", MyDialog.ERROR_DIALOG);
+            new MyDialog("Chua chon san pham de xoa!", MyDialog.ERROR_DIALOG);
             return false;
         }
 
         try {
             int maSP = Integer.parseInt(ma);
             if (spDAO.xoaSanPham(maSP)) {
-                new MyDialog("Xoá thành công!", MyDialog.SUCCESS_DIALOG);
+                new MyDialog("Xoa thanh cong!", MyDialog.SUCCESS_DIALOG);
                 return true;
             }
-            new MyDialog("Xoá thất bại!", MyDialog.ERROR_DIALOG);
+            new MyDialog("Xoa that bai!", MyDialog.ERROR_DIALOG);
         } catch (NumberFormatException e) {
-            new MyDialog("Mã sản phẩm không hợp lệ!", MyDialog.ERROR_DIALOG);
+            new MyDialog("Ma san pham khong hop le!", MyDialog.ERROR_DIALOG);
         }
         return false;
     }
@@ -168,24 +168,24 @@ public class SanPhamBUS {
     public boolean suaSanPham(String ma, String ten, String loai, String soLuong, String donViTinh, String anh, String donGia) {
         try {
             if (ma.trim().isEmpty()) {
-                new MyDialog("Chưa chọn sản phẩm để sửa!", MyDialog.ERROR_DIALOG);
+                new MyDialog("Chua chon san pham de sua!", MyDialog.ERROR_DIALOG);
                 return false;
             }
 
             if (ten.trim().isEmpty()) {
-                new MyDialog("Tên SP không được để trống!", MyDialog.ERROR_DIALOG);
+                new MyDialog("Ten SP khong duoc de trong!", MyDialog.ERROR_DIALOG);
                 return false;
             }
 
             if (donViTinh.trim().isEmpty()) {
-                new MyDialog("Vui lòng điền Đơn vị tính!", MyDialog.ERROR_DIALOG);
+                new MyDialog("Vui long dien Don vi tinh!", MyDialog.ERROR_DIALOG);
                 return false;
             }
 
             String[] loaiTmp = loai.split(" - ");
             int maLoai = Integer.parseInt(loaiTmp[0]);
             if (maLoai == 0) {
-                new MyDialog("Vui lòng chọn Loại sản phẩm!", MyDialog.ERROR_DIALOG);
+                new MyDialog("Vui long chon Loai san pham!", MyDialog.ERROR_DIALOG);
                 return false;
             }
 
@@ -203,14 +203,14 @@ public class SanPhamBUS {
             sp.setDonGia(donGiaSP);
 
             if (spDAO.suaSanPham(sp)) {
-                new MyDialog("Sửa thành công!", MyDialog.SUCCESS_DIALOG);
+                new MyDialog("Sua thanh cong!", MyDialog.SUCCESS_DIALOG);
                 return true;
             } else {
-                new MyDialog("Sửa thất bại!", MyDialog.ERROR_DIALOG);
+                new MyDialog("Sua that bai!", MyDialog.ERROR_DIALOG);
                 return false;
             }
         } catch (NumberFormatException e) {
-            new MyDialog("Nhập số hợp lệ cho Đơn giá và Số lượng!", MyDialog.ERROR_DIALOG);
+            new MyDialog("Nhap so hop le cho Don gia va So luong!", MyDialog.ERROR_DIALOG);
         }
         return false;
     }

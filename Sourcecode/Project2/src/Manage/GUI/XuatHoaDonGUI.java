@@ -106,15 +106,15 @@ public class XuatHoaDonGUI extends JDialog {
                 + "font-size:16pt"
                 + "}"
                 + "</style>";
-        hd += "<h1 style='text-align:center;'>XEM TRƯỚC HOÁ ĐƠN</h1>";
+        hd += "<h1 style='text-align:center;'>XEM TRUOC HOA DON</h1>";
         hd += "<div style='text-align:center'>";
         hd += "<table style='max-width:100%'>";
         hd += "<tr>"
-                + "<th>Mã SP</th>"
-                + "<th>Tên SP</th>"
-                + "<th>Số lượng</th>"
-                + "<th>Đơn giá</th>"
-                + "<th>Thành tiền</th>"
+                + "<th>Ma SP</th>"
+                + "<th>Ten SP</th>"
+                + "<th>So luong</th>"
+                + "<th>Don gia</th>"
+                + "<th>Thanh tien</th>"
                 + "</tr>";
         for (Vector vec : dsGioHang) {
             hd += "<tr>";
@@ -129,7 +129,7 @@ public class XuatHoaDonGUI extends JDialog {
         hd += "<td style='text-align:center;'>" + "</td>";
         hd += "<td style='text-align:left;'>" + "</td>";
         hd += "<td style='text-align:center;'>" + "</td>";
-        hd += "<td style='text-align:center;font-weight:bold'>Tổng cộng</td>";
+        hd += "<td style='text-align:center;font-weight:bold'>Tong cong</td>";
         hd += "<td style='text-align:center;'>" + dcf.format(tongTien) + "</td>";
         hd += "</tr>";
         hd += "</table>";
@@ -159,19 +159,19 @@ public class XuatHoaDonGUI extends JDialog {
                 + "font-size:16pt"
                 + "}"
                 + "</style>";
-        hd += "<h1 style='text-align:center;'>HOÁ ĐƠN THANH TOÁN</h1>";
-        hd += "<p style='margin-left:50px;'>Nhân viên: " + nhanVien + "</p><br/>";
-        hd += "<p style='margin-left:50px;'> Ngày lập: " + dtf.format(now) + "</p><br/>";
-        hd += "<p style='margin-left:50px;'>Khách hàng: " + txtTenKhach.getText() + "</p><br/>";
+        hd += "<h1 style='text-align:center;'>HOA DON THANH TOAN</h1>";
+        hd += "<p style='margin-left:50px;'>Nhan vien: " + nhanVien + "</p><br/>";
+        hd += "<p style='margin-left:50px;'> Ngay lap: " + dtf.format(now) + "</p><br/>";
+        hd += "<p style='margin-left:50px;'>Khach hang: " + txtTenKhach.getText() + "</p><br/>";
         hd += "<div style='text-align:center;'>==========================================</div><br/>";
         hd += "<div style='text-align:center'>";
         hd += "<table style='max-width:100%'>";
         hd += "<tr>"
-                + "<th>Mã SP</th>"
-                + "<th>Tên SP</th>"
-                + "<th>Số lượng</th>"
-                + "<th>Đơn giá</th>"
-                + "<th>Thành tiền</th>"
+                + "<th>Ma SP</th>"
+                + "<th>Ten SP</th>"
+                + "<th>So luong</th>"
+                + "<th>Don gia</th>"
+                + "<th>Thanh tien</th>"
                 + "</tr>";
         for (Vector vec : dsGioHang) {
             hd += "<tr>";
@@ -186,17 +186,17 @@ public class XuatHoaDonGUI extends JDialog {
         hd += "<td style='text-align:center;'>" + "</td>";
         hd += "<td style='text-align:left;'>" + "</td>";
         hd += "<td style='text-align:center;'>" + "</td>";
-        hd += "<td style='text-align:center;font-weight:bold'>Tổng cộng</td>";
+        hd += "<td style='text-align:center;font-weight:bold'>Tong cong</td>";
         hd += "<td style='text-align:center;'>" + dcf.format(tongTien) + "</td>";
         hd += "</tr>";
         if (timMaUI.maGiamTimDuoc != null) {
             int percent = 0;
-            // lấy phần trăm giảm
+            // lay phan tram giam
             percent = timMaUI.maGiamTimDuoc.getPhanTramGiam();
             if (tongTien >= timMaUI.maGiamTimDuoc.getDieuKien()) {
                 tongTien = tongTien - (tongTien * percent / 100);
             } else {
-                new MyDialog("Không đủ điều kiện nhận ưu đãi!", MyDialog.ERROR_DIALOG);
+                new MyDialog("Khong du dieu kien nhan uu dai!", MyDialog.ERROR_DIALOG);
                 btnTimMaGiam.setEnabled(true);
                 return;
             }
@@ -205,14 +205,14 @@ public class XuatHoaDonGUI extends JDialog {
         hd += "<td style='text-align:center;'>" + "</td>";
         hd += "<td style='text-align:left;'>" + "</td>";
         hd += "<td style='text-align:center;'>" + "</td>";
-        hd += "<td style='text-align:center;font-weight:bold'>Khuyến mãi</td>";
+        hd += "<td style='text-align:center;font-weight:bold'>Khuyen mai</td>";
         hd += "<td style='text-align:center;'>" + timMaUI.maGiamTimDuoc.getPhanTramGiam() + "%" + "</td>";
         hd += "</tr>";
         hd += "<tr>";
         hd += "<td style='text-align:center;'>" + "</td>";
         hd += "<td style='text-align:left;'>" + "</td>";
         hd += "<td style='text-align:center;'>" + "</td>";
-        hd += "<td style='text-align:center;font-weight:bold'>Thành tiền</td>";
+        hd += "<td style='text-align:center;font-weight:bold'>Thanh tien</td>";
         hd += "<td style='text-align:center;'>" + dcf.format(tongTien) + "</td>";
         hd += "</tr>";
         hd += "</table>";
@@ -248,11 +248,11 @@ public class XuatHoaDonGUI extends JDialog {
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 51, 255));
-        jLabel1.setText("XUẤT HOÁ ĐƠN");
+        jLabel1.setText("XUAT HOA DON");
         jPanel1.add(jLabel1);
 
         btnThanhToan.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        btnThanhToan.setText("Thanh toán");
+        btnThanhToan.setText("Thanh toan");
         btnThanhToan.setEnabled(false);
         btnThanhToan.setPreferredSize(new java.awt.Dimension(128, 45));
         btnThanhToan.addActionListener(new java.awt.event.ActionListener() {
@@ -263,7 +263,7 @@ public class XuatHoaDonGUI extends JDialog {
         jPanel2.add(btnThanhToan);
 
         btnInHoaDon.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        btnInHoaDon.setText("In hoá đơn");
+        btnInHoaDon.setText("In hoa don");
         btnInHoaDon.setEnabled(false);
         btnInHoaDon.setPreferredSize(new java.awt.Dimension(128, 45));
         btnInHoaDon.addActionListener(new java.awt.event.ActionListener() {
@@ -281,10 +281,10 @@ public class XuatHoaDonGUI extends JDialog {
         txtTenKhach.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
 
         jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        jLabel2.setText("Khách hàng");
+        jLabel2.setText("Khach hang");
 
         jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        jLabel3.setText("Mã giảm");
+        jLabel3.setText("Ma giam");
 
         txtMaGiam.setEditable(false);
         txtMaGiam.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
@@ -308,7 +308,7 @@ public class XuatHoaDonGUI extends JDialog {
         });
 
         jLabel4.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        jLabel4.setText("Tổng tiền");
+        jLabel4.setText("Tong tien");
 
         txtTongTien.setEditable(false);
         txtTongTien.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
@@ -375,17 +375,17 @@ public class XuatHoaDonGUI extends JDialog {
     private void btnThanhToanActionPerformed(java.awt.event.ActionEvent evt) {
         checkBanHang = false;
         if (txtTenKhach.getText().equals("")) {
-            new MyDialog("Xin chọn khách hàng", MyDialog.ERROR_DIALOG);
+            new MyDialog("Xin chon khach hang", MyDialog.ERROR_DIALOG);
             return;
         }
         if (txtMaGiam.getText().equals("")) {
-            new MyDialog("Xin chọn mã giảm", MyDialog.ERROR_DIALOG);
+            new MyDialog("Xin chon ma giam", MyDialog.ERROR_DIALOG);
             return;
         }
         xuLyHienThiHoaDon();
         btnInHoaDon.setEnabled(true);
 
-        hoadonBUS.luuHoaDon(DlgTimKhach.khachHangTimDuoc.getMaKH(), nhanVien, tongTien, "Đã thanh toán");
+        hoadonBUS.luuHoaDon(DlgTimKhach.khachHangTimDuoc.getMaKH(), nhanVien, tongTien, "Da thanh toan");
 
         for (Vector vec : dsGioHang) {
             String maSP = vec.get(0) + "";

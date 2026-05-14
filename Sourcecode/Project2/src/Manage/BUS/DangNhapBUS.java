@@ -24,7 +24,7 @@ public class DangNhapBUS {
 
     public TaiKhoan getTaiKhoanDangNhap(String user, String password) {
         if (kiemTraDangNhap(user, password) == EMPTY_ERROR) {
-            new MyDialog("Không được để trống thông tin!", MyDialog.ERROR_DIALOG);
+            new MyDialog("Khong duoc de trong thong tin!", MyDialog.ERROR_DIALOG);
             return null;
         }
         TaiKhoan tk = new TaiKhoan();
@@ -36,16 +36,16 @@ public class DangNhapBUS {
         taiKhoanLogin = account;
 
         if (account == null) {
-            new MyDialog("Sai thông tin đăng nhập hoặc tài khoản đã bị khoá!", MyDialog.ERROR_DIALOG);
+            new MyDialog("Sai thong tin dang nhap hoac tai khoan da bi khoa!", MyDialog.ERROR_DIALOG);
         } else {
             PhanQuyenBUS phanQuyenBUS = new PhanQuyenBUS();
             quyenTK = account.getQuyen();
             PhanQuyen phanQuyen = phanQuyenBUS.getPhanQuyen(account.getQuyen());
             if (phanQuyen == null) {
-                new MyDialog("Không tìm thấy quyền của tài khoản!", MyDialog.ERROR_DIALOG);
+                new MyDialog("Khong tim thay quyen cua tai khoan!", MyDialog.ERROR_DIALOG);
                 return null;
             }
-            new MyDialog("Đăng nhập thành công!", MyDialog.SUCCESS_DIALOG);
+            new MyDialog("Dang nhap thanh cong!", MyDialog.SUCCESS_DIALOG);
         }
         return account;
     }

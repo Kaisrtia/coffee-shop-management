@@ -56,7 +56,7 @@ public class DlgTimMaGiam extends JDialog {
 
         Font font = new Font("Times New Roman", Font.PLAIN, 16);
         JPanel pnTop = new JPanel();
-        JLabel lblTuKhoa = new JLabel("Từ khoá tìm");
+        JLabel lblTuKhoa = new JLabel("Tu khoa tim");
         txtTuKhoa = new JTextField(20);
         lblTuKhoa.setFont(font);
         txtTuKhoa.setFont(font);
@@ -67,21 +67,21 @@ public class DlgTimMaGiam extends JDialog {
         JPanel pnTable = new JPanel();
         pnTable.setLayout(new BorderLayout());
         dtmMaGiam = new DefaultTableModel();
-        dtmMaGiam.addColumn("Mã");
-        dtmMaGiam.addColumn("Chương trình");
+        dtmMaGiam.addColumn("Ma");
+        dtmMaGiam.addColumn("Chuong trinh");
         dtmMaGiam.addColumn("% KM");
-        dtmMaGiam.addColumn("Điều kiện");
-        dtmMaGiam.addColumn("Bắt đầu");
-        dtmMaGiam.addColumn("Kết thúc");
-        dtmMaGiam.addColumn("Trạng thái");
+        dtmMaGiam.addColumn("Dieu kien");
+        dtmMaGiam.addColumn("Bat dau");
+        dtmMaGiam.addColumn("Ket thuc");
+        dtmMaGiam.addColumn("Trang thai");
         tblMaGiam = new MyTable(dtmMaGiam);
         JScrollPane scrMaGiam = new JScrollPane(tblMaGiam);
         pnTable.add(scrMaGiam, BorderLayout.CENTER);
         con.add(pnTable, BorderLayout.CENTER);
 
         JPanel pnButton = new JPanel();
-        btnChon = new JButton("Chọn");
-        btnThoat = new JButton("Thoát");
+        btnChon = new JButton("Chon");
+        btnThoat = new JButton("Thoat");
         btnChon.setFont(font);
         btnThoat.setFont(font);
         pnButton.add(btnChon);
@@ -133,8 +133,8 @@ public class DlgTimMaGiam extends JDialog {
         int row = tblMaGiam.getSelectedRow();
         if (row > -1) {
             try {
-                if (tblMaGiam.getValueAt(row, 6).equals("Không hiệu lực")) {
-                    new MyDialog("Mã này đã hết hiệu lực!", MyDialog.ERROR_DIALOG);
+                if (tblMaGiam.getValueAt(row, 6).equals("Khong hieu luc")) {
+                    new MyDialog("Ma nay da het hieu luc!", MyDialog.ERROR_DIALOG);
                     loadDataLenTable();
                     return;
                 }
@@ -147,7 +147,7 @@ public class DlgTimMaGiam extends JDialog {
                 int dieuKien = Integer.parseInt(dieuKienst);
 
                 if(dieuKien > tongTien) {
-                    new MyDialog("Không đủ điều kiện áp dụng mã giảm này!", MyDialog.ERROR_DIALOG);
+                    new MyDialog("Khong du dieu kien ap dung ma giam nay!", MyDialog.ERROR_DIALOG);
                     return;
                 }
                 
@@ -189,9 +189,9 @@ public class DlgTimMaGiam extends JDialog {
 
             Date now = new Date();
             if (gg.getNgayBD().before(now) && gg.getNgayKT().after(now)) {
-                vec.add("Có hiệu lực");
+                vec.add("Co hieu luc");
             } else {
-                vec.add("Không hiệu lực");
+                vec.add("Khong hieu luc");
             }
             dtmMaGiam.addRow(vec);
         }

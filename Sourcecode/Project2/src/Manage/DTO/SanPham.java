@@ -1,7 +1,7 @@
 package Manage.DTO;
 
 /**
- * Class đại diện cho một sản phẩm trong hệ thống
+ * Class dai dien cho mot san pham trong he thong
  */
 public class SanPham {
     private int maSP;
@@ -13,7 +13,7 @@ public class SanPham {
     private int donGia;
 
     /**
-     * Khởi tạo một sản phẩm mới với các giá trị mặc định
+     * Khoi tao mot san pham moi voi cac gia tri mac dinh
      */
     public SanPham() {
         this.maSP = 0;
@@ -26,14 +26,14 @@ public class SanPham {
     }
 
     /**
-     * Khởi tạo một sản phẩm mới với các giá trị được chỉ định
-     * @param maSP Mã sản phẩm
-     * @param tenSP Tên sản phẩm
-     * @param maLoai Mã loại sản phẩm
-     * @param soLuong Số lượng
-     * @param donViTinh Đơn vị tính
-     * @param hinhAnh Đường dẫn hình ảnh
-     * @param donGia Đơn giá
+     * Khoi tao mot san pham moi voi cac gia tri duoc chi dinh
+     * @param maSP Ma san pham
+     * @param tenSP Ten san pham
+     * @param maLoai Ma loai san pham
+     * @param soLuong So luong
+     * @param donViTinh Don vi tinh
+     * @param hinhAnh Duong dan hinh anh
+     * @param donGia Don gia
      */
     public SanPham(int maSP, String tenSP, int maLoai, int soLuong, String donViTinh, String hinhAnh, int donGia) {
         this.maSP = maSP;
@@ -51,7 +51,7 @@ public class SanPham {
 
     public void setMaSP(int maSP) {
         if (maSP < 0) {
-            throw new IllegalArgumentException("Mã sản phẩm không được âm");
+            throw new IllegalArgumentException("Ma san pham khong duoc am");
         }
         this.maSP = maSP;
     }
@@ -62,7 +62,7 @@ public class SanPham {
 
     public void setTenSP(String tenSP) {
         if (tenSP == null || tenSP.trim().isEmpty()) {
-            throw new IllegalArgumentException("Tên sản phẩm không được để trống");
+            throw new IllegalArgumentException("Ten san pham khong duoc de trong");
         }
         this.tenSP = tenSP.trim();
     }
@@ -73,7 +73,7 @@ public class SanPham {
 
     public void setMaLoai(int maLoai) {
         if (maLoai < 0) {
-            throw new IllegalArgumentException("Mã loại không được âm");
+            throw new IllegalArgumentException("Ma loai khong duoc am");
         }
         this.maLoai = maLoai;
     }
@@ -84,7 +84,7 @@ public class SanPham {
 
     public void setSoLuong(int soLuong) {
         if (soLuong < 0) {
-            throw new IllegalArgumentException("Số lượng không được âm");
+            throw new IllegalArgumentException("So luong khong duoc am");
         }
         this.soLuong = soLuong;
     }
@@ -95,7 +95,7 @@ public class SanPham {
 
     public void setDonViTinh(String donViTinh) {
         if (donViTinh == null || donViTinh.trim().isEmpty()) {
-            throw new IllegalArgumentException("Đơn vị tính không được để trống");
+            throw new IllegalArgumentException("Don vi tinh khong duoc de trong");
         }
         this.donViTinh = donViTinh.trim();
     }
@@ -114,7 +114,7 @@ public class SanPham {
 
     public void setDonGia(int donGia) {
         if (donGia < 0) {
-            throw new IllegalArgumentException("Đơn giá không được âm");
+            throw new IllegalArgumentException("Don gia khong duoc am");
         }
         this.donGia = donGia;
     }

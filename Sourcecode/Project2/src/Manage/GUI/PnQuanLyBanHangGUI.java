@@ -93,7 +93,7 @@ public class PnQuanLyBanHangGUI extends JPanel {
         pnTop.setLayout(null);
         pnTop.setBorder(BorderFactory.createMatteBorder(1, 0, 1, 0, Color.GRAY));
 
-        lblTabbedBanHang = new JLabel("Bán hàng");
+        lblTabbedBanHang = new JLabel("Ban hang");
         lblTabbedBanHang.setHorizontalTextPosition(JLabel.CENTER);
         lblTabbedBanHang.setVerticalTextPosition(JLabel.CENTER);
         lblTabbedBanHang.setIcon(tabbedSelected);
@@ -102,7 +102,7 @@ public class PnQuanLyBanHangGUI extends JPanel {
         lblTabbedBanHang.setForeground(Color.white);
         lblTabbedBanHang.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 
-        lblTabbedHoaDon = new JLabel("Hoá đơn");
+        lblTabbedHoaDon = new JLabel("Hoa don");
         lblTabbedHoaDon.setHorizontalTextPosition(JLabel.CENTER);
         lblTabbedHoaDon.setVerticalTextPosition(JLabel.CENTER);
         lblTabbedHoaDon.setIcon(tabbedDefault);
@@ -117,16 +117,16 @@ public class PnQuanLyBanHangGUI extends JPanel {
         this.add(pnTop, BorderLayout.NORTH);
         /*
         =========================================================================
-                                    PANEL CT BÁN HÀNG
+                                    PANEL CT BAN HANG
         =========================================================================
          */
-        //====================Bảng hàng hoá====================
-        //<editor-fold defaultstate="collapsed" desc="Bảng sản phẩm">
+        //====================Bang hang hoa====================
+        //<editor-fold defaultstate="collapsed" desc="Bang san pham">
         JPanel pnTableBanHang = new TransparentPanel();
         pnTableBanHang.setLayout(new BorderLayout());
 
         JPanel pnTitleBanHang = new TransparentPanel();
-        JLabel lblTitleBanHang = new JLabel("Danh sách sản phẩm");
+        JLabel lblTitleBanHang = new JLabel("Danh sach san pham");
         lblTitleBanHang.setFont(new Font("Times New Roman", Font.BOLD, 28));
         btnReset = new JButton(new ImageIcon("image/Refresh-icon.png"));
         btnReset.setFocusPainted(false);
@@ -136,12 +136,12 @@ public class PnQuanLyBanHangGUI extends JPanel {
         pnTableBanHang.add(pnTitleBanHang, BorderLayout.NORTH);
 
         dtmSanPhamBan = new DefaultTableModel();
-        dtmSanPhamBan.addColumn("Mã SP");
-        dtmSanPhamBan.addColumn("Tên SP");
-        dtmSanPhamBan.addColumn("Đơn giá");
-        dtmSanPhamBan.addColumn("Còn lại");
-        dtmSanPhamBan.addColumn("Đơn vị tính");
-        dtmSanPhamBan.addColumn("Ảnh");
+        dtmSanPhamBan.addColumn("Ma SP");
+        dtmSanPhamBan.addColumn("Ten SP");
+        dtmSanPhamBan.addColumn("Don gia");
+        dtmSanPhamBan.addColumn("Con lai");
+        dtmSanPhamBan.addColumn("Don vi tinh");
+        dtmSanPhamBan.addColumn("Anh");
         tblBanHang = new MyTable(dtmSanPhamBan);
 
         tblBanHang.getColumnModel().getColumn(0).setCellRenderer(centerRenderer);
@@ -161,21 +161,21 @@ public class PnQuanLyBanHangGUI extends JPanel {
         //</editor-fold>
         pnTableBanHang.add(scrTblBanHang, BorderLayout.CENTER);
 
-        //====================Thông tin giỏ hàng====================
+        //====================Thong tin gio hang====================
         JPanel pnTableGioHang = new TransparentPanel();
-        //<editor-fold defaultstate="collapsed" desc="Bảng giỏ hàng">
+        //<editor-fold defaultstate="collapsed" desc="Bang gio hang">
         pnTableGioHang.setLayout(new BorderLayout());
 
-        JLabel lblTitleGioHang = new JLabel("Giỏ hàng");
+        JLabel lblTitleGioHang = new JLabel("Gio hang");
         lblTitleGioHang.setFont(new Font("Times New Roman", Font.BOLD, 28));
         pnTableGioHang.add(lblTitleGioHang, BorderLayout.NORTH);
 
         dtmGioHang = new DefaultTableModel();
-        dtmGioHang.addColumn("Mã SP");
-        dtmGioHang.addColumn("Tên SP");
-        dtmGioHang.addColumn("Số lượng");
-        dtmGioHang.addColumn("Đơn giá");
-        dtmGioHang.addColumn("Thành tiền");
+        dtmGioHang.addColumn("Ma SP");
+        dtmGioHang.addColumn("Ten SP");
+        dtmGioHang.addColumn("So luong");
+        dtmGioHang.addColumn("Don gia");
+        dtmGioHang.addColumn("Thanh tien");
 
         tblGioHang = new MyTable(dtmGioHang);
 
@@ -195,19 +195,19 @@ public class PnQuanLyBanHangGUI extends JPanel {
         //</editor-fold>
         pnTableGioHang.add(scrTblGioHang, BorderLayout.CENTER);
 
-        //====================Thông tin bán hàng====================
+        //====================Thong tin ban hang====================
         JPanel pnThongTinBanHang = new TransparentPanel();
-        //<editor-fold defaultstate="collapsed" desc="Thông tin bán hàng (textfield, button thêm)">
+        //<editor-fold defaultstate="collapsed" desc="Thong tin ban hang (textfield, button them)">
         pnThongTinBanHang.setLayout(new BoxLayout(pnThongTinBanHang, BoxLayout.Y_AXIS));
 
         JPanel pnTitleThongTin = new TransparentPanel();
-        JLabel lblTitleThongTin = new JLabel("Chi tiết sản phẩm", JLabel.LEFT);
+        JLabel lblTitleThongTin = new JLabel("Chi tiet san pham", JLabel.LEFT);
         lblTitleThongTin.setFont(new Font("Times New Roman", Font.BOLD, 28));
         pnTitleThongTin.add(lblTitleThongTin);
         pnThongTinBanHang.add(pnTitleThongTin);
 
         JPanel pnLoaiSP = new TransparentPanel();
-        JLabel lblLoai = new JLabel("Loại SP");
+        JLabel lblLoai = new JLabel("Loai SP");
         lblLoai.setFont(font);
         cmbLoaiSPBanHang = new JComboBox<>();
         cmbLoaiSPBanHang.setFont(font);
@@ -217,7 +217,7 @@ public class PnQuanLyBanHangGUI extends JPanel {
         pnThongTinBanHang.add(pnLoaiSP);
 
         JPanel pnMaSP = new TransparentPanel();
-        JLabel lblMa = new JLabel("Mã SP");
+        JLabel lblMa = new JLabel("Ma SP");
         lblMa.setFont(font);
         txtMaSPBanHang = new JTextField(15);
         txtMaSPBanHang.setFont(font);
@@ -226,7 +226,7 @@ public class PnQuanLyBanHangGUI extends JPanel {
         pnThongTinBanHang.add(pnMaSP);
 
         JPanel pnTenSP = new TransparentPanel();
-        JLabel lblTen = new JLabel("Tên SP");
+        JLabel lblTen = new JLabel("Ten SP");
         lblTen.setFont(font);
         txtTenSPBanHang = new JTextField(15);
         txtTenSPBanHang.setFont(font);
@@ -236,7 +236,7 @@ public class PnQuanLyBanHangGUI extends JPanel {
         pnThongTinBanHang.add(pnTenSP);
 
         JPanel pnDonGiaSP = new TransparentPanel();
-        JLabel lblDonGia = new JLabel("Đơn giá");
+        JLabel lblDonGia = new JLabel("Don gia");
         lblDonGia.setFont(font);
         txtDonGiaBanHang = new JTextField(15);
         txtDonGiaBanHang.setFont(font);
@@ -245,7 +245,7 @@ public class PnQuanLyBanHangGUI extends JPanel {
         pnThongTinBanHang.add(pnDonGiaSP);
 
         JPanel pnSoLuongSP = new TransparentPanel();
-        JLabel lblSoLuong = new JLabel("Số lượng");
+        JLabel lblSoLuong = new JLabel("So luong");
         lblSoLuong.setFont(font);
         spnSoLuongBanHang = new JSpinner();
         spnSoLuongBanHang.setFont(font);
@@ -261,7 +261,7 @@ public class PnQuanLyBanHangGUI extends JPanel {
         pnThongTinBanHang.add(pnSoLuongSP);
 
         JPanel pnNhanVienBan = new TransparentPanel();
-        JLabel lblNhanVien = new JLabel("Nhân Viên");
+        JLabel lblNhanVien = new JLabel("Nhan Vien");
         lblNhanVien.setFont(font);
         lblLoai.setFont(font);
         cmbNhanVienBan = new JComboBox<>();
@@ -272,7 +272,7 @@ public class PnQuanLyBanHangGUI extends JPanel {
         pnThongTinBanHang.add(pnNhanVienBan);
 
         JPanel pnButtonBan = new TransparentPanel();
-        btnThemVaoGio = new JLabel("Thêm vào giỏ");
+        btnThemVaoGio = new JLabel("Them vao gio");
         pnButtonBan.add(btnThemVaoGio);
         pnThongTinBanHang.add(pnButtonBan);
 
@@ -290,7 +290,7 @@ public class PnQuanLyBanHangGUI extends JPanel {
         txtDonGiaBanHang.setEditable(false);
         //</editor-fold>
 
-        //<editor-fold defaultstate="collapsed" desc="Ảnh hàng">
+        //<editor-fold defaultstate="collapsed" desc="Anh hang">
         JPanel pnAnhSanPham = new TransparentPanel();
         pnAnhSanPham.setPreferredSize(new Dimension((int) pnThongTinBanHang.getPreferredSize().getWidth(), 220));
         lblAnhSP = new JLabel();
@@ -299,8 +299,8 @@ public class PnQuanLyBanHangGUI extends JPanel {
         pnAnhSanPham.add(lblAnhSP);
 
         JPanel pnButtonBanHang = new TransparentPanel();
-        btnXoaSPGioHang = new JLabel("Xoá");
-        btnXuatHoaDonSP = new JLabel("Xuất hoá đơn");
+        btnXoaSPGioHang = new JLabel("Xoa");
+        btnXuatHoaDonSP = new JLabel("Xuat hoa don");
         pnButtonBanHang.setPreferredSize(new Dimension((int) pnThongTinBanHang.getPreferredSize().getWidth(), 50));
 
         //<editor-fold defaultstate="collapsed" desc="Action cho button">
@@ -378,7 +378,7 @@ public class PnQuanLyBanHangGUI extends JPanel {
 
         /*
         =========================================================================
-                                    PANEL CT HOÁ ĐƠN
+                                    PANEL CT HOA DON
         =========================================================================
          */
         JPanel pnCTHoaDon = new JPanel();
@@ -392,16 +392,16 @@ public class PnQuanLyBanHangGUI extends JPanel {
         pnCTHoaDon.add(pnCTHoaDonLeft, BorderLayout.WEST);
 
         JLabel lblMaHD, lblNgayLap, lblMaKH, lblMaNV, lblTongTien, lblGhiChu, lblMinsearch, lblMaxSearch, lblMinNgay, lblMaxNgay;
-        lblMaHD = new JLabel("Mã HD");
-        lblMaKH = new JLabel("Mã KH");
-        lblMaNV = new JLabel("NV lập");
-        lblNgayLap = new JLabel("Ngày lập");
-        lblTongTien = new JLabel("Tổng tiền");
-        lblGhiChu = new JLabel("Ghi chú");
-        lblMinsearch = new JLabel("Giá từ:");
-        lblMaxSearch = new JLabel("đến:");
-        lblMinNgay = new JLabel("Ngày lập từ:");
-        lblMaxNgay = new JLabel("đến:");
+        lblMaHD = new JLabel("Ma HD");
+        lblMaKH = new JLabel("Ma KH");
+        lblMaNV = new JLabel("NV lap");
+        lblNgayLap = new JLabel("Ngay lap");
+        lblTongTien = new JLabel("Tong tien");
+        lblGhiChu = new JLabel("Ghi chu");
+        lblMinsearch = new JLabel("Gia tu:");
+        lblMaxSearch = new JLabel("den:");
+        lblMinNgay = new JLabel("Ngay lap tu:");
+        lblMaxNgay = new JLabel("den:");
 
         txtMaHD = new JTextField(10);
         txtMaKH = new JTextField(10);
@@ -415,7 +415,7 @@ public class PnQuanLyBanHangGUI extends JPanel {
         txtMaxNgayLap = new JTextField(7);
 
         JPanel pnTitleHoaDon = new TransparentPanel(new FlowLayout());
-        JLabel lblTitleHoaDon = new JLabel("THÔNG TIN HOÁ ĐƠN");
+        JLabel lblTitleHoaDon = new JLabel("THONG TIN HOA DON");
         lblTitleHoaDon.setFont(new Font("Times New Roman", Font.BOLD, 28));
         btnResetHoaDon = new JButton(new ImageIcon("image/Refresh-icon.png"));
         btnResetHoaDon.setPreferredSize(new Dimension(40, 40));
@@ -524,11 +524,11 @@ public class PnQuanLyBanHangGUI extends JPanel {
         JPanel pnTopCTHoaDonRight = new TransparentPanel();
         pnTopCTHoaDonRight.setLayout(new BoxLayout(pnTopCTHoaDonRight, BoxLayout.Y_AXIS));
         JLabel lblMaHDCT, lblMaSPCT, lblSoLuongCT, lblDonGiaCT, lblThanhTienCT;
-        lblMaHDCT = new JLabel("Mã HD");
-        lblMaSPCT = new JLabel("Sản phẩm");
-        lblSoLuongCT = new JLabel("Số lượng");
-        lblDonGiaCT = new JLabel("Đơn giá");
-        lblThanhTienCT = new JLabel("Thành tiền");
+        lblMaHDCT = new JLabel("Ma HD");
+        lblMaSPCT = new JLabel("San pham");
+        lblSoLuongCT = new JLabel("So luong");
+        lblDonGiaCT = new JLabel("Don gia");
+        lblThanhTienCT = new JLabel("Thanh tien");
 
         txtMaHDCT = new JTextField(20);
         txtMaSPCT = new JTextField(20);
@@ -536,7 +536,7 @@ public class PnQuanLyBanHangGUI extends JPanel {
         txtDonGiaCT = new JTextField(20);
         txtThanhTienCT = new JTextField(20);
 
-        JLabel lblTitleCTHD = new JLabel("CHI TIẾT HOÁ ĐƠN");
+        JLabel lblTitleCTHD = new JLabel("CHI TIET HOA DON");
         JPanel pnTitleCT = new TransparentPanel();
         lblTitleCTHD.setFont(new Font("Times New Roman", Font.BOLD, 28));
 
@@ -596,11 +596,11 @@ public class PnQuanLyBanHangGUI extends JPanel {
         pnCTHoaDonRight.add(pnTopCTHoaDonRight, BorderLayout.NORTH);
 
         dtmCTHoaDon = new DefaultTableModel();
-        dtmCTHoaDon.addColumn("Mã HD");
-        dtmCTHoaDon.addColumn("Mã SP");
-        dtmCTHoaDon.addColumn("Số lượng");
-        dtmCTHoaDon.addColumn("Đơn giá");
-        dtmCTHoaDon.addColumn("Thành tiền");
+        dtmCTHoaDon.addColumn("Ma HD");
+        dtmCTHoaDon.addColumn("Ma SP");
+        dtmCTHoaDon.addColumn("So luong");
+        dtmCTHoaDon.addColumn("Don gia");
+        dtmCTHoaDon.addColumn("Thanh tien");
         tblCTHoaDon = new MyTable(dtmCTHoaDon);
         JScrollPane scrCTHoaDon = new JScrollPane(tblCTHoaDon);
         pnCTHoaDonRight.add(scrCTHoaDon, BorderLayout.CENTER);
@@ -900,14 +900,21 @@ public class PnQuanLyBanHangGUI extends JPanel {
 
     private void loadDataComboboxLoaiBanSP() {
         cmbLoaiSPBanHang.removeAllItems();
-        cmbLoaiSPBanHang.addItem("0 - Chọn loại");
+        cmbLoaiSPBanHang.addItem("0 - Chon loai");
         ArrayList<LoaiSP> dsl = loaiBUS.getDanhSachLoai();
 
         for (LoaiSP loai : dsl) {
-            if (!loai.getTenLoai().equalsIgnoreCase("Nguyên liệu")) {
+            if (!removeVietnameseAccents(loai.getTenLoai()).equalsIgnoreCase("Nguyen lieu")) {
                 cmbLoaiSPBanHang.addItem(loai.getMaLoai() + " - " + loai.getTenLoai());
             }
         }
+    }
+
+    private String removeVietnameseAccents(String value) {
+        if (value == null) {
+            return "";
+        }
+        return Normalizer.normalize(value, Normalizer.Form.NFD).replaceAll("\\p{M}", "").replace('\u0111', 'd').replace('\u0110', 'D');
     }
 
     private void loadDataComboboxNhanVienBan() {
@@ -969,7 +976,7 @@ public class PnQuanLyBanHangGUI extends JPanel {
             String anh = tblBanHang.getValueAt(row, 5) + "";
             int soLuong = Integer.parseInt(tblBanHang.getValueAt(row, 3) + "");
             if (soLuong < 1) {
-                MyDialog dlg = new MyDialog("Sản phẩm đã hết hàng", MyDialog.ERROR_DIALOG);
+                MyDialog dlg = new MyDialog("San pham da het hang", MyDialog.ERROR_DIALOG);
                 return;
             }
 
@@ -995,7 +1002,7 @@ public class PnQuanLyBanHangGUI extends JPanel {
 
     private ImageIcon getAnhSP(String src) {
         src = src.trim().equals("") ? "default.png" : src;
-        //Xử lý ảnh
+        //Xu ly anh
         BufferedImage img = null;
         File fileImg = new File("image/SanPham/" + src);
 
@@ -1032,7 +1039,7 @@ public class PnQuanLyBanHangGUI extends JPanel {
         int soLuongConLai = Integer.parseInt(tblBanHang.getValueAt(tblBanHang.getSelectedRow(), 3) + "");
 
         if (soLuong > soLuongConLai || soLuongConLai <= 0) {
-            new MyDialog("Sản phẩm đã hết hàng", MyDialog.ERROR_DIALOG);
+            new MyDialog("San pham da het hang", MyDialog.ERROR_DIALOG);
             return;
         }
 
@@ -1055,7 +1062,7 @@ public class PnQuanLyBanHangGUI extends JPanel {
                 tblGioHang.setValueAt(soLuongAdd, i, 2);
                 tblGioHang.setValueAt(dcf.format(soLuong * donGiaSP), i, 4);
 
-                // cập nhật lại số lượng trong db
+                // cap nhat lai so luong trong db
                 spBUS.capNhatSoLuongSP(key, -soLuong);
                 spBUS.docListSanPham();
                 loadDataTableSanPhamBan();
@@ -1071,7 +1078,7 @@ public class PnQuanLyBanHangGUI extends JPanel {
         donGia = donGia.replace(",", "");
         int donGiaSP = Integer.parseInt(donGia);
         vec.add(dcf.format(soLuong * donGiaSP));
-        // cập nhật lại số lượng trong db
+        // cap nhat lai so luong trong db
         spBUS.capNhatSoLuongSP(key, -soLuong);
         spBUS.docListSanPham();
         loadDataTableSanPhamBan();
@@ -1187,7 +1194,7 @@ public class PnQuanLyBanHangGUI extends JPanel {
         txtTongTien.setText(dcf.format(hd.getTongTien()));
         txtGhiChu.setText(hd.getGhiChu());
 
-        // Gọi hiển thị data trên tblCTHoaDon
+        // Goi hien thi data tren tblCTHoaDon
         loadDataTblCTHoaDon(stMaHD[0]);
     }
 
