@@ -1,3 +1,5 @@
 localhost
-coffeeshop
+coffee_shop_management
 root
+Nguyen17
+3306
